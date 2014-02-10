@@ -17,8 +17,8 @@
 
     <icon src="icon.png" />
 
-    <gap:plugin name="com.phonegap.plugins.camera" />
-    <gap:plugin name="com.phonegap.plugins.device" />
-    <gap:plugin name="com.phonegap.plugins.dialogs" />
-    <gap:plugin name="com.phonegap.plugins.console" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.console" />
 </widget>
