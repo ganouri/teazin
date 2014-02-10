@@ -2,7 +2,7 @@
 <widget id="in.teaz.beta" 
         version="0.0.1" 
         xmlns="http://www.w3.org/ns/widgets" 
-        xmlns:cdv="http://phonegap.com/ns/1.0" >
+        xmlns:gap="http://phonegap.com/ns/1.0" >
     <name>TEAZin</name>
     <description>
       Messaging app for intimate conversations
@@ -17,8 +17,8 @@
 
     <icon src="icon.png" />
 
-    <!--<gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.console" />-->
+    <gap:plugin name="org.apache.cordova.console" />
 </widget>
