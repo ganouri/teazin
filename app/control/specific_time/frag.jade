@@ -1,0 +1,25 @@
+.app-fragment itemTitle
+    p.noWrap Specific time
+
+.app-fragment itemButton
+    .storeItem
+        .inticon.inticon-hourglass
+
+.app-fragment itemIcon
+    .inticon.inticon-hourglass
+
+.app-fragment itemBrief
+    p Available for 1 hour at %{specific_time.timeMarker} GMT
+
+.app-fragment itemConfig
+    .pt-page-scaleUp
+        p Content will only been available for 1 hour after the choosen time:
+        p It is %{specific_time.timeNow} GMT
+        input.time-input.grey.message-input(data-bind="value: time", type="time", name="time", value="10:00:00")
+        label.control-err-label.hide Error Message
+
+.app-fragment itemUnlock
+    p Available for 1 hour after %{specific_time.timeMarker} GMT
+    p It is %{specific_time.timeNow} GMT
+    p %{specific_time.error}
+    input.submitAttempt(type='submit')

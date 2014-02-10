@@ -1,0 +1,8 @@
+define(['jadeRuntime'], function(jade) {
+return function template(locals) {
+var buf = [];
+var jade_mixins = {};
+
+buf.push("<div class=\"header\"><div class=\"action action-left\"></div><div class=\"header-title\"><p>TEAZ'IN</p></div><div class=\"action action-right\"></div></div><div class=\"app-body\"><div id=\"loginWrapper\"><fieldset><div class=\"loginFieldWrap clearfix\"><div data-bind=\"if: state()\"><label class=\"fieldLabel\">Nickname</label><input type=\"text\" data-bind=\"value: nickname, css:{ 'login-err': valid().nickname}\" class=\"inputBox\"/><label data-bind=\"if: valid().nickname, text:valid().nickname\" class=\"errLabel\">Error Message</label></div><label class=\"fieldLabel\">Email</label><input type=\"text\" data-bind=\"value: email, css:{ 'login-err': valid().email}\" class=\"inputBox\"/><label data-bind=\"if: valid().email, text:valid().email\" class=\"errLabel\">Error Message</label><label class=\"fieldLabel\">Password</label><input type=\"password\" data-bind=\"value: password, css:{ 'login-err': valid().password}\" class=\"inputBox\"/><label data-bind=\"if: valid().password, text:valid().password\" class=\"errLabel\">Error Message</label><label data-bind=\"if: serverMessage(), text:serverMessage()\" class=\"errLabel\">Error Message</label><div class=\"loginWrap\"><input data-bind=\"value: labels().login\" type=\"submit\" value=\"Login\" class=\"clearfix login-button-lgn loginButton\"/><input data-bind=\"value: labels().signup\" type=\"submit\" value=\"Signup\" class=\"clearfix login-button-sgn loginButton\"/></div></div><div class=\"linkLabel clearfix\"><a>Discover our privacy policy</a></div></fieldset></div></div>");;return buf.join("");
+};
+});

@@ -1,0 +1,27 @@
+.app-fragment itemTitle
+    p IntiMate Question
+
+.app-fragment itemButton
+    .storeItem
+        .inticon.inticon-couple
+
+.app-fragment itemIcon
+    .inticon.inticon-couple
+
+.app-fragment itemBrief
+    p %{intimate_question.question}
+
+.app-fragment itemConfig
+    .pt-page-scaleUp
+        p Choose a question and type an answer:
+        select(data-bind='value: question')
+            option(value='What is my favorite desert ? (1 word)') What is my favorite desert ? (1 word)
+            option(value='Where did you first met me ? (1 word)') Where did you first met me ? (1 word)
+        textarea.largefield(data-bind='value: answer')
+
+.app-fragment itemUnlock
+    p Find the right answer
+    p %{intimate_question.question}
+    textarea(data-bind='value: attemptData')
+    p %{intimate_question.error}
+    input.submitAttempt(type='submit')

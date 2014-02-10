@@ -1,0 +1,25 @@
+.header
+    .action.action-left
+    .header-title
+     p TEAZ'IN
+    .action.action-right
+.app-body
+    #loginWrapper
+        fieldset
+            .loginFieldWrap.clearfix
+                div(data-bind="if: state()")
+                    label.fieldLabel Nickname
+                    input.inputBox(type="text", data-bind="value: nickname, css:{ 'login-err': valid().nickname}")
+                    label.errLabel(data-bind = "if: valid().nickname, text:valid().nickname") Error Message
+                label.fieldLabel Email
+                input.inputBox(type="text", data-bind="value: email, css:{ 'login-err': valid().email}")
+                label.errLabel(data-bind = "if: valid().email, text:valid().email") Error Message
+                label.fieldLabel Password
+                input.inputBox(type="password", data-bind="value: password, css:{ 'login-err': valid().password}")
+                label.errLabel(data-bind = "if: valid().password, text:valid().password") Error Message
+                label.errLabel(data-bind = "if: serverMessage(), text:serverMessage()") Error Message
+                .loginWrap
+                    input.clearfix.login-button-lgn.loginButton(data-bind="value: labels().login", type="submit",value="Login")
+                    input.clearfix.login-button-sgn.loginButton(data-bind="value: labels().signup", type="submit",value="Signup")
+            .linkLabel.clearfix
+                a Discover our privacy policy

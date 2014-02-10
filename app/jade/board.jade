@@ -1,0 +1,67 @@
+.header
+    .action.action-left
+    .header-title
+        p.noWrap #{board.namesList}
+    .action.action-right
+#boardWrapper.app-body
+    .boardScroller
+        .playersZone.boardZone
+            //- if more than 4, display 3 and the last face contains a number +n
+            //- if you click on this number column enlarge
+            for player in board.players
+                if player._id != board.user._id
+                    .face(style='background-image:url("#{player.profilePic}")')
+        .rewardZone.boardZone.row
+            .rewardContainer
+                if board.primaryMedia.type === 'Picture'
+                    .rewardImg(style='background-image:url("#{board.primaryMedia.content}")')
+                else if board.primaryMedia.type === 'Text'
+                    .rewardText
+                        p #{board.primaryMedia.content}
+                if board.viewConfig.gameView == 'locked'
+                    .rewardMask
+                        .maskLabel LOCKED
+        if board.viewConfig.gameView == 'locked'
+            .gameZone.boardZone
+                .gameHeader
+                    .gameCreator
+                        .face(style='background-image:url("#{board.currentGame.user.profilePic}")')
+                    .gameMeta
+                        .playerName.gameMetaText
+                            p.noWrap Locked by #{board.currentGame.user.nickname}
+                        .gameTime.gameMetaText
+                            p.noWrap #{board.currentGame.fromNow}
+                .gameLocks
+                    for item in board.currentGame.locks
+                        .itemAttempt(name='#{item.name}')
+                            .itemHeader.activeZone.row.fixed-area
+                                .itemUnset
+                                    != controls[item.name].frag.itemIcon
+                                .itemTitle
+                                    != controls[item.name].frag.itemTitle
+                            .attemptView
+        for attempt in board.currentGame.attempts
+            .boardZone.attemptZone(class= '#{attempt.state}')
+                .gameHeader
+                    .gameCreator
+                        .face(style='background-image:url("#{attempt.user.profilePic}")')
+                    .gameMeta
+                        .playerName.gameMetaText
+                            if attempt.state == 'success'
+                                p.noWrap Successfully unlocked by #{attempt.user.nickname}
+                            if attempt.state == 'failure'
+                                p.noWrap Failed attempt by #{attempt.user.nickname}
+                        .gameTime.gameMetaText
+                            p.noWrap #{attempt.fromNow}
+                .gameLocks
+                    for item in attempt.items
+                        .lockOn
+                            .lockIcon
+                                != controls[item.name].frag.itemIcon
+                            .lockBrief
+                                //- GUIGUI check here the type of the answer
+                                p.noWrap #{item.media.content}
+.footer
+    .action
+    .action.actionLarge.textButton.deleteButton
+        p DELETE

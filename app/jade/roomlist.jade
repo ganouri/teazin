@@ -1,0 +1,21 @@
+each room in roomList
+    .roomCard(data-id="#{room._id}")
+        .facesView
+            - var i = 0
+            each face in room.players.faces
+                - i ++
+                if i <= room.viewConfig.facesDisplayed
+                    .face(class='#{room.viewConfig.facesView}', style='background-image:url("#{face.profilePic}")', faceId='#{face.id}')
+            if room.players.leftover > 0
+                .face(class='#{room.viewConfig.facesView}')
+                    p #{room.players.leftover}
+        .metaView
+            .playersList
+                p.noWrap #{room.players.emails}
+            if room.updates > 0
+                .updatesBoard
+                    .updatesSticker #{room.updates}
+                    if (room.updates == 1)
+                        .updatesLabel.noWrap Update
+                    else
+                        .updatesLabel.noWrap Updates

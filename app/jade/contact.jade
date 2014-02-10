@@ -1,0 +1,34 @@
+.header
+    .action.action-left
+    .header-title
+        p CONTACT LIST
+    .action.action-right
+.app-body
+    .add-contact-panel.hide
+        .add-contact-header
+            .add-contact-title
+                p Add Contact
+            //-.add-contact-close.activeZone
+                .inticon.inticon-small.inticon-del
+        .add-contact-form(data-bind= 'css: { hide: invite()}')
+            p.add-contact-instruction Enter a new contact email :
+            .formFieldWrap
+                label.field-title
+                input.contactField(data-bind = "value: email, css:{ 'login-err': valid().email}", type="text")
+                label.login-err-label(data-bind= "if: valid().email, text:valid().email") Error Message
+                label.login-err-label(data-bind= "if: error(), text:error()") Error Message
+                .add-contact-button-container
+                    input.button-minimal.add-contact-action.grey-minimal.right(type="submit",value="Add User")
+        .invite-contact-form.text-center(data-bind= 'css: { hide: !invite()}')
+            span.bold(data-bind="text: email")
+            p is not using IntiMate yet
+            input.button-minimal.invite-contact-action.grey-minimal.center(type="submit",value="Invite To the App")
+            br
+            input.button-minimal.back-contact-action.grey-minimal.center(type="submit",value="Re-Type Email")
+    .blockToFixScroll
+        #contactWrapper(class='#{state.roomAccess}')
+            .contactListFrag
+    if state.roomAccess == 'showRoomAccess'
+        .roomAccess
+            p Select contacts to open a room
+.footer

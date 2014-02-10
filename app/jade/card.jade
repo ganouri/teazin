@@ -1,0 +1,53 @@
+.rewardZone.cardZone(class='#{card.viewConfig.gameView} #{card.viewConfig.playersView}')
+    if card.primaryMedia.type === 'Picture'
+        .rewardImg(style='background-image:url("#{card.primaryMedia.content}")')
+    else if card.primaryMedia.type === 'Text'
+        .rewardText
+            p #{card.primaryMedia.content}
+    if card.viewConfig.gameView == 'locked'
+        .rewardMask
+            .maskLock
+                .inticon.inticon-locked
+if card.viewConfig.gameView == 'locked'
+    .gameZone.cardZone(class='#{card.viewConfig.gameView} #{card.viewConfig.playersView}')
+        .gameHeader
+            .gameCreator
+                .face(style='background-image:url("#{card.currentGame.user.profilePic}")')
+            .gameMeta
+                .playerName.gameMetaText
+                    p.noWrap Locked by #{card.currentGame.user.nickname}
+                .gameTime.gameMetaText
+                    p.noWrap #{card.currentGame.fromNow}
+        .gameLocks
+            for lock in card.currentGame.locks
+                .lockOn
+                    .lockIcon
+                        != controls[lock.name].frag.itemIcon
+                    .lockBrief
+                        p.noWrap
+                            != controls[lock.name].controller.renderBrief(lock.config)
+if card.viewConfig.gameView == 'unlocked'
+    .cardZone.attemptZone(class='#{card.viewConfig.gameView} #{card.viewConfig.playersView}')
+        .gameHeader
+            .gameCreator
+                .face(style='background-image:url("#{card.currentGame.latestAttempt.user.profilePic}")')
+            .gameMeta
+                .playerName.gameMetaText
+                    p.noWrap Unlocked by #{card.currentGame.latestAttempt.user.nickname}
+                .gameTime.gameMetaText
+                    p.noWrap #{card.currentGame.latestAttempt.fromNow}
+        .gameLocks
+            for item in card.currentGame.latestAttempt.items
+                .lockOn
+                    .lockIcon
+                        != controls[item.name].frag.itemIcon
+                    .lockBrief
+                        //- GUIGUI check here the type of the answer
+                        p.noWrap #{item.media.content}
+if card.viewConfig.playersView != 'players_off'
+    .playersZone.cardZone(class='#{card.viewConfig.playersView}')
+        - var i = 0
+        for player in card.players
+            if player._id != card.user._id && i < 4
+                - i ++
+                    .face(style='background-image:url("#{player.profilePic}")')

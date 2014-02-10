@@ -1,0 +1,27 @@
+.header
+	.action.action-left
+	.header-title
+		p PROFILE
+	.action.action-right
+.profile-settings
+	.profile-picture
+		.profile-image(style='background-image:url("#{data.profilePic}")')
+	.profile-info
+		p.profile-nickname #{data.nickname}
+		p.profile-email #{data.email}
+		//-button.profile-edit Edit
+#settingsWrapper.app-body.app-body-settings
+	.settingsScroller		
+		.setting-item
+			.setting-header Change Nickname
+			.setting-panel.hide
+				label Upcoming
+				//-input.inputBox(type="text")
+		.setting-item
+			.setting-header Change Password
+			.setting-panel.hide
+				label Upcoming
+		.setting-item
+			.setting-header Security settings
+			.setting-panel.hide
+				label Upcoming

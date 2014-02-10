@@ -1,0 +1,739 @@
+/*** GENERIC ***/
+.activeZone{
+    background-color: rgba(20,19,30,1);
+}
+
+.noWrap{
+    -o-text-overflow: ellipsis;   
+    text-overflow:    ellipsis;   
+    overflow:hidden;         
+    white-space:nowrap;
+    width: 100%;
+}
+
+
+
+/*** USER PICTURES ***/
+.user-image{
+    border-radius: 20px;
+    height:40px;
+    width:40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*** ICONS EVERYWHERE IN THE APP ***/
+.inticon{
+    background-size: auto 40px;
+    background-repeat: no-repeat;
+    background-position:center; 
+    /*border-radius: 20px;*/
+    height:40px;
+    width:100%;
+}
+
+.inticon-large{
+    border-radius: 0;
+}
+
+.inticon-small{
+    background-size: auto 30px;
+    height: 30px;
+    /*border-radius: 15px;*/
+}
+
+
+
+/*** PLAIN ***/
+.inticon-couple{background-image: url("../images/guigui/inticons/plain/inticon-couple.png"); }
+.inticon-eye{background-image: url("../images/guigui/inticons/plain/inticon-eye.png"); }
+.inticon-flame{background-image: url("../images/guigui/inticons/plain/inticon-flame.png"); }
+.inticon-girl{background-image: url("../images/guigui/inticons/plain/inticon-girl.png"); }
+.inticon-hands{background-image: url("../images/guigui/inticons/plain/inticon-hands.png"); }
+.inticon-kiss{background-image: url("../images/guigui/inticons/plain/inticon-kiss.png"); }
+.inticon-hourglass{background-image: url("../images/guigui/inticons/plain/inticon-hourglass.png"); }
+.inticon-location{background-image: url("../images/guigui/inticons/plain/inticon-location.png"); }
+.inticon-male{background-image: url("../images/guigui/inticons/plain/inticon-male.png"); }
+
+.inticon-send{background-image: url("../images/guigui/inticons/plain/inticon-send.png"); }
+.inticon-save{background-image: url("../images/guigui/inticons/plain/inticon-save.png"); }
+.inticon-delete{background-image: url("../images/guigui/inticons/plain/inticon-delete.png"); }
+
+.inticon-addlocks{background-image: url("../images/guigui/inticons/plain/inticon-addlocks.png"); }
+
+.inticon-add{background-image: url("../images/guigui/inticons/plain/inticon-add.png"); }
+.inticon-del{background-image: url("../images/guigui/inticons/plain/inticon-del.png"); }
+.inticon-more{background-image: url("../images/guigui/inticons/plain/inticon-more.png"); }
+.inticon-right-arrow{background-image: url("../images/guigui/inticons/plain/inticon-right-arrow.png"); }
+.inticon-left-arrow{background-image: url("../images/guigui/inticons/plain/inticon-left-arrow.png"); }
+.inticon-capture{background-image: url("../images/guigui/inticons/plain/inticon-capture.png"); }
+.inticon-compose{background-image: url("../images/guigui/inticons/plain/inticon-compose.png"); }
+.inticon-contact{background-image: url("../images/guigui/inticons/plain/inticon-contact.png"); }
+.inticon-add-contact{background-image: url("../images/guigui/inticons/plain/inticon-add-contact.png"); }
+.inticon-settings{background-image: url("../images/guigui/inticons/plain/inticon-settings.png"); }
+
+.inticon-lock1{background-image: url("../images/guigui/inticons/plain/inticon-lock1.png"); }
+.inticon-lock2{background-image: url("../images/guigui/inticons/plain/inticon-lock2.png"); }
+.inticon-lock3{background-image: url("../images/guigui/inticons/plain/inticon-lock3.png"); }
+.inticon-locked{background-image: url("../images/guigui/inticons/plain/inticon-locked.png"); }
+
+
+
+/*** BACKGROUND ***/
+.background .inticon-couple{background-image: url("../images/guigui/inticons/background/inticon-couple.png"); }
+.background .inticon-eye{background-image: url("../images/guigui/inticons/background/inticon-eye.png"); }
+.background .inticon-flame{background-image: url("../images/guigui/inticons/background/inticon-flame.png"); }
+.background .inticon-girl{background-image: url("../images/guigui/inticons/background/inticon-girl.png"); }
+.background .inticon-hands{background-image: url("../images/guigui/inticons/background/inticon-hands.png"); }
+.background .inticon-kiss{background-image: url("../images/guigui/inticons/background/inticon-kiss.png"); }
+.background .inticon-hourglass{background-image: url("../images/guigui/inticons/background/inticon-hourglass.png"); }
+.background .inticon-location{background-image: url("../images/guigui/inticons/background/inticon-location.png"); }
+.background .inticon-male{background-image: url("../images/guigui/inticons/background/inticon-male.png"); }
+
+
+
+/*** RECIPIENTS VIEW ***/
+.recipients{
+    top:0;  
+    height:50px;
+    width: 100%;
+}
+
+.recipients .user-item{
+    position:relative;
+    float:left;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+
+
+/*** FAKE CAPTURE VIEW ***/
+.fakeCapture{
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/guigui/content/img-sample-lady.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+/*** CREATOR VIEW ***/
+#creatorWrapper{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width: 100%;
+}
+
+.app-creator-screen .cardPreview{
+    margin-top:10px;
+}
+
+.addLocks{
+    width: 100%;
+    margin-top: 10px;
+    height:54px;
+    background-color: rgba(20,19,30,1);
+}
+
+.addLocksText{
+    width: 50%;
+    height: 54px;
+    margin: 0 auto;
+    padding: 17px 0px;
+    background-color: green;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:#ffffff;
+}
+
+.creatorTuto{
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    background-color: rgba(20,19,30,1);
+    text-align: center;
+}
+
+.creatorTuto p{
+    /*color: #ffffff;*/
+    font-size: 18px;
+    line-height: 18px;
+}
+
+
+/*** SET LOCKS VIEW ***/
+.toolBar{
+    top:10px;  
+    height:60px;
+    width: 100%;
+}
+
+.toolBar .tab{
+    float: left;
+    position: relative;
+    height:100%;
+    width:24%;
+    padding: 7px;
+    background-color: rgba(52,49,73,1);
+    height: 54px;
+    margin-left: 2%;
+}
+
+.toolBar .tab:first-child{
+    margin-left:0;
+}
+
+.toolBar .tab.activeZone{
+    background-color: rgba(20,19,30,1);
+    padding-bottom: 13px;
+    height: 60px;
+    width: 48%;
+}
+
+.toolBar .tabInstructions{
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.toolBar .tabInstructions p{
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color:#ffffff;
+}
+
+.configViews{
+    position:absolute;
+    top:70px;   
+    bottom:0;
+    width: 100%;
+    background-color: rgba(20,19,30,1);
+}
+
+.toolView{
+    position:absolute;
+    top:0;   
+    bottom:0;
+}
+
+.toolView .itemHeader{
+    height: 54px;
+    width: 100%;
+}
+
+.toolView .itemHeader .itemUnset,.toolView .itemHeader .itemTitle,.toolView .itemHeader .itemSave{
+    position: absolute;
+    height: 54px;
+}
+
+.toolView .itemHeader .itemUnset{
+    right:0;
+    width: 70px;
+    padding: 7px;
+}
+
+.toolView .itemHeader .itemTitle{
+    left:70px;
+    right:70px;
+    text-align: center;
+    padding:17px 7px;
+}
+
+.toolView .itemHeader .itemSave{
+    right:0;
+    width: 70px;
+    padding: 7px;
+}
+
+.toolView .itemHeader .itemTitle p{
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.configWrapper{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    width:100%;
+}
+
+.itemConfig{
+    width:100%;
+    padding: 14px 14px;
+    text-align: center;
+}
+
+.itemConfig textarea, .itemConfig input{
+    max-width:90%;
+    margin: 5% auto;
+    padding: 6px;
+    text-align: center;
+}
+
+.itemConfig .largefield{
+    width:90%;
+}
+
+.itemConfig p{
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+
+
+/*** STORE VIEW ***/
+#storeWrapper, .lockWrapper{
+    width:100%;
+    height: 100%;
+}
+
+#storeWrapper{
+    top: 0px;
+    bottom: 0px;
+}
+
+.storeList{
+    height: 100%;
+}
+
+.storeItem{
+    position: relative;
+    float: left;
+    padding: 7px;
+    height: 54px;
+    width: 80px;
+}
+
+@media screen and (max-width: 560px) {
+    .storeItem{ width: 16%;}
+}
+
+@media screen and (max-width: 480px) {
+    .storeItem{ width: 20%;}
+}
+
+@media screen and (max-width: 400px) {
+    .storeItem{ width: 25%;}
+}
+
+@media screen and (max-width: 320px) {
+    .storeItem{ width: 33%;}
+}
+
+@media screen and (max-width: 240px) {
+    .storeItem{ width: 50%;}
+}
+
+
+
+/*** CARD / BOARD ***/
+.cardContainer{
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 219px;
+}
+
+.cardPreview{
+    position:relative;
+    width: 100%;
+    height: 219px;
+}
+
+.cardZone{
+    position: absolute;
+    top:0px;
+    height:219px;
+    background-color:rgba(20,19,30,1);
+}
+
+.rewardZone{ /* default : nolock noplayers*/
+    left:0;
+    right:0;
+}
+
+.rewardZone.players_1col{
+    right:64px;
+}
+
+.rewardZone.players_2col{
+    right:118px;
+}
+
+.rewardZone.locked{
+    width:57px;
+}
+
+.rewardZone.unlocked{
+    width:45%;
+}
+
+.rewardZone .rewardContainer{
+    position: relative;
+    width: 100%;
+    height: 219px;
+}
+
+.rewardZone .rewardImg{
+    background-size: cover;
+    background-position: center;
+    height: 219px;
+    width: 100%;
+}
+
+.rewardZone .rewardText{
+    background-color: rgba(20,19,30,1);
+    height: 219px;
+    width: 100%;
+    padding: 30px;
+}
+
+.rewardZone.unlocked .rewardText{
+    padding: 15px;
+}
+
+.rewardZone .rewardText p{
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.rewardZone .rewardMask{
+    position: absolute;
+    top:0;
+    background-color: rgba(125,125,125,0.95);
+    background-size: cover;
+    background-position: center;
+    height: 219px;
+    width: 100%;
+    padding: 83px 0px 82px 0px;
+}
+
+.rewardZone .rewardMask .maskLock{
+    position: absolute;
+    top:0;
+    height: 219px;
+    width: 100%;
+    padding: 7px 10px 0px 7px;
+}
+
+.rewardZone .rewardMask .maskLabel{
+    background-color: rgba(206,0,0,1);
+    color: #ffffff;
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 17px;
+    width: 120px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.rewardZone .rewardMask .maskLabel.rewardReveal{
+    background-color: green;
+}
+
+.rewardZone.rewardLocked .rewardImg{ 
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.gameZone{
+    left:57px;
+    right:0px;
+    box-shadow: -3px 0px 3px rgba(20,19,30,1);
+}
+
+.attemptZone.success{
+    background-color: green;
+}
+
+.attemptZone.failure{
+    background-color: rgba(206,0,0,1);
+}
+
+.cardZone.attemptZone{
+    left:45%;
+    right:0px;
+    margin-left: 10px;
+}
+
+.gameZone.players_1col,.attemptZone.players_1col{
+    right:64px;
+}
+
+.gameZone.players_2col,.attemptZone.players_2col{
+    right:118px;
+}
+
+.cardZone .gameHeader{
+    width:100%;
+    height:54px;
+}
+
+.cardZone .gameHeader .gameCreator{
+    position:absolute;
+    height:54px;
+    width:54px;
+}
+
+.cardZone .gameHeader .gameMeta{
+    position:absolute;
+    left:54px;
+    right:0;
+    height:54px;
+}
+
+.gameMeta{
+    /*background-color: rgba(20,19,30,1);*/
+}
+
+.gameMeta .gameMetaText{
+    padding: 10px 10px 3px 10px;
+}
+
+.gameMeta p{
+    color:#ffffff;
+    font-size:14px;
+    line-height: 14px;
+}
+
+.cardZone .lockOn{
+    margin: 5px 0px 0px 0px;
+    height: 50px;
+    background-color: rgba(52,49,73,1);
+}
+
+.cardZone .lockOn .lockIcon{
+    position: absolute;
+    width: 54px;
+    padding: 5px 7px;
+}
+
+.cardZone .lockOn .lockBrief{
+    position: absolute;
+    left:54px;
+    right:0;
+    padding: 20px 7px;
+}
+
+.cardZone .lockOn .lockBrief p{
+    color:#ffffff;
+    font-size:14px;
+    line-height: 14px;
+    -o-text-overflow: ellipsis;   
+    text-overflow:    ellipsis;   
+    overflow:hidden;         
+    white-space:nowrap;
+    width: 100%;
+}
+
+.cardPreview .playersZone{ /* default : players_1col */
+    width: 54px;
+    right:0;
+}
+
+.cardPreview .playersZone.players_2col{
+    width: 108px;
+}
+
+
+
+/*** BOARD VIEW ***/
+.boardZone .gameHeader{
+    width:100%;
+    height:54px;
+}
+
+.boardZone .gameHeader .gameCreator{
+    position:absolute;
+    height:54px;
+    width:54px;
+}
+
+.boardZone .gameHeader .gameMeta{
+    position:absolute;
+    left:54px;
+    right:0;
+    height:54px;
+}
+
+.boardZone .lockOn{
+    margin: 5px 0px 0px 0px;
+    height: 50px;
+    background-color: rgba(52,49,73,1);
+}
+
+.boardZone .lockOn .lockIcon{
+    position: absolute;
+    width: 54px;
+    padding: 5px 7px;
+}
+
+.boardZone .lockOn .lockBrief{
+    position: absolute;
+    left:54px;
+    right:0;
+    padding: 20px 7px;
+}
+
+.boardZone .lockOn .lockBrief p{
+    color:#ffffff;
+    font-size:14px;
+    line-height: 14px;
+    -o-text-overflow: ellipsis;   
+    text-overflow:    ellipsis;   
+    overflow:hidden;         
+    white-space:nowrap;
+    width: 100%;
+}
+
+.boardZone.playersZone{
+    height: 54px;
+    width: 100%;
+    background-color: rgba(52,49,73,1);
+}
+
+.boardZone .playerFace{
+    position: relative;
+    float: left;
+}
+
+.boardZone.attemptZone{
+    margin-top: 10px;
+}
+
+.boardZone.attemptZone .lockOn{
+    margin-right:54px;
+}
+
+.boardZone.attemptZone .lockOn .lockBrief{
+    right: 54px;
+}
+
+
+
+/*** ATTEMPT VIEW ***/
+.itemAttempt{
+    position:relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.itemAttempt .itemHeader{
+    position: relative;
+    height: 54px;
+    width: 100%;
+}
+
+.itemAttempt .itemHeader .itemUnset,.itemAttempt .itemHeader .itemTitle,.itemAttempt .itemHeader .itemSave{
+    position: absolute;
+    height: 54px;
+}
+
+.itemAttempt .itemHeader .itemUnset{
+    left:0;
+    width: 70px;
+    padding: 7px;
+}
+
+.itemAttempt .itemHeader .itemTitle{
+    left:70px;
+    right:70px;
+    text-align: center;
+    padding:17px 7px;
+}
+
+.itemAttempt .itemHeader .itemSave{
+    right:0;
+    width: 70px;
+    padding: 7px;
+}
+
+.itemAttempt .itemHeader .itemTitle p{
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.attemptView{
+    position:relative;
+    background-color: rgba(52,49,73,1);
+    width:100%;
+    padding: 14px 14px;
+    text-align: center;
+}
+
+.attemptView.success{
+    background-color: green;
+}
+
+.attemptView.failure{
+    background-color: rgba(206,0,0,1);
+}
+
+.attemptView textarea, .attemptView input{
+    width:90%;
+    margin: 5%;
+    padding: 6px;
+    text-align: center;
+}
+
+.attemptView p{
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.attemptView input.submitAttempt{
+    color: rgba(52,49,73,1);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 10px;
+    background-color: rgba(245,163,53,1);
+}
+
+
+
+/*** COMPOSE VIEW ****/
+.composeArea{
+    width: 100%;
+    padding: 20px;
+}
+
+#composeBox{
+    width:100%;
+    height:160px;
+    line-height: 24px;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sendTextButton{
+    height: 54px;
+    width: 100%;
+    background-color: green;
+    padding: 17px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:#ffffff;
+}

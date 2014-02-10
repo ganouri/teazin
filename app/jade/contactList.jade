@@ -1,0 +1,16 @@
+each contact in state.base.contacts
+  .clearfix.contact-card(data-id="#{contact._id}")
+    .contact-image
+      if contact.profilePic
+        .face.face60px(style='background-image:url("#{contact.profilePic}")')
+      else
+        .face.face60px(style='background-image:url("temp/user/anonymous.jpg")')
+    .contact-info
+      p.contact-nick #{contact.nickname}
+      p.contact-email(style="font-color:red;") #{contact.email}
+    .contact-actions
+      .checker-container
+        a.checker.checkbox-v4.fadeVisible.fadeHidden x
+      .block-container
+        a.no-bottom.button.red.fadeHidden Block
+    br(style="clear:both")
