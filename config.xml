@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id = "com.teazin.app" 
+<widget id="com.teazin.app" 
         version="0.0.1" 
         xmlns="http://www.w3.org/ns/widgets" 
         xmlns:cdv="http://phonegap.com/ns/1.0" >
@@ -17,8 +17,8 @@
 
     <icon src="icon.png" />
 
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.console" />
+    <gap:plugin name="org.apache.cordova.core.device" />
+    <gap:plugin name="org.apache.cordova.core.camera" />
+    <gap:plugin name="org.apache.cordova.core.dialogs" />
+    <gap:plugin name="org.apache.cordova.core.console" />
 </widget>
