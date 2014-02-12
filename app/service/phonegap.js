@@ -10,8 +10,9 @@ define(['service/api'], function(api){
             console.log('in getpicture')
             navigator.camera.getPicture(
                 function(image) {
+                    
+                    console.log(image)
                     cb({
-                        console.log(image)
                         payload:{type: 'Picture', path: image},
                         error: ''
                     });
