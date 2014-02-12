@@ -7,7 +7,7 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
 		var _this = this;
 
 		_this.settingsData = _.extend({
-			profilePic : state.base.profilePic || 'temp/user/anonymous.jpg',
+			profilePic : state.base.profilePic || 'images/user/anonymous.jpg',
 			nickname : state.base.nickname,
 			email : state.base.email
 		},config);

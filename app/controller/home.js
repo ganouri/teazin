@@ -69,7 +69,7 @@ define([
 							
 							var face = {
 								id:playerId,
-								profilePic: state.base.contacts[playerId].profilePic || 'temp/user/anonymous.jpg'
+								profilePic: state.base.contacts[playerId].profilePic || 'images/user/anonymous.jpg'
 							}
 							roomData.players.faces.push(face);				
 						}

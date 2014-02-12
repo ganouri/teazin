@@ -12,9 +12,9 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag',
 
         this.getProfilePic = function(_id){
             if (_id == state.base._id) {
-                return state.base.profilePic || 'temp/user/anonymous.jpg'
+                return state.base.profilePic || 'images/user/anonymous.jpg'
             } else {
-                return state.contacts[_id].profilePic || 'temp/user/anonymous.jpg'
+                return state.contacts[_id].profilePic || 'images/user/anonymous.jpg'
             }
         }
 

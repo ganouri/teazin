@@ -4,7 +4,7 @@ each contact in state.base.contacts
       if contact.profilePic
         .face.face60px(style='background-image:url("#{contact.profilePic}")')
       else
-        .face.face60px(style='background-image:url("temp/user/anonymous.jpg")')
+        .face.face60px(style='background-image:url("images/user/anonymous.jpg")')
     .contact-info
       p.contact-nick #{contact.nickname}
       p.contact-email(style="font-color:red;") #{contact.email}
