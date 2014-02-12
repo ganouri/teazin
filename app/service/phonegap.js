@@ -11,6 +11,7 @@ define(['service/api'], function(api){
             navigator.camera.getPicture(
                 function(image) {
                     cb({
+                        console.log(image)
                         payload:{type: 'Picture', path: image},
                         error: ''
                     });
@@ -20,7 +21,7 @@ define(['service/api'], function(api){
                 },
                 {
                   quality: options.quality || 50,
-                  destinationType: options.destinationType ||  Camera.DestinationType.FILE_URI, //DATA_URL
+                  destinationType: options.destinationType || 1, //DATA_URL : 0, FILE_URI : 1, NATIVE_URI : 2
                   sourceType: options.sourceType || 1, // 0:Photo Library, 1=Camera, 2=Saved Photo Album
                   encodingType: options.encodingType || 0, // 0=JPG 1=PNG
                   correctOrientation: options.correctOrientation || true
