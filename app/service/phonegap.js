@@ -7,11 +7,8 @@ define(['service/api'], function(api){
         var _this = this;
 
         this.getPicture = function(options, cb){
-            console.log('in getpicture')
             navigator.camera.getPicture(
                 function(image) {
-                    
-                    console.log(image)
                     cb({
                         payload:{type: 'Picture', path: image},
                         error: ''
@@ -31,7 +28,6 @@ define(['service/api'], function(api){
         };
 
         this.uploadFile = function (data, cb){
-            console.log('in upload file')
             var fileURI = data.payload.path;
             var options = new FileUploadOptions();
             var params = {client: 'phonegap'};
@@ -44,13 +40,11 @@ define(['service/api'], function(api){
             var ft = new FileTransfer();
 
             api.getMediaId(function(errors, payload){
-                console.log('in getMediaId')
                 if(! errors && payload._id){
                     ft.upload(
                         fileURI,
                         encodeURI(api.mediaURI+payload._id),
                         function(r){
-                            console.log('successful upload')
                             cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
                         },
                         function(e){

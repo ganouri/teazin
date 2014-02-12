@@ -16,7 +16,6 @@ define(['service/api'], function (api) {
         };
 
         this.uploadFile = function (data, cb){
-            console.log('in mockup')
             data.payload.id = "15575da0-1352-11e3-abfa-8742d5c09769";
             cb(_.extend(data, {upload: {payload: data.payload.id}, error: undefined}));
         };

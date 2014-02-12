@@ -28,13 +28,9 @@ define(['jquery', 'service/phonegap', 'service/mockup'], function ($, pg, mockup
             if( _this[methode] ){
                 _this[methode](options, function (data){
                     //upload picture using api : Linux x86_64 // Linux armv7l
-                    console.log('cb picture')
                     results[key] = _.extend(data, {order: order});
                     if(data.payload.path){
-                        console.log('ok path');
-                        console.log(data.payload.path)
                         _this.uploadFile(results[key], function(data){
-                            console.log('upload_done')
                             results[key] = data;
                             temporaryCB();
                         });
