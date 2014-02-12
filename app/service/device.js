@@ -12,12 +12,12 @@ define(['jquery', 'service/phonegap', 'service/mockup'], function ($, pg, mockup
 
         this.uploadFile = function() {
             //return typeof FileTransfer === 'function' ? pg.uploadFile : mockup.uploadFile;
-            if (return typeof FileTransfer === 'function') {
-                console.log ('file transfer known');
-                mockup.uploadFile
+            if (typeof FileTransfer === 'function') {
+                console.log('file transfer known');
+                return mockup.uploadFile
             } else {
-                console.log ('file transfer not known');
-                mockup.uploadFile
+                console.log('file transfer not known');
+                return mockup.uploadFile
             }
         }();
 
