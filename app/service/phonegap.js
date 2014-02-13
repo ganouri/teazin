@@ -30,7 +30,10 @@ define(['service/api'], function(api){
         this.uploadFile = function (data, cb){
             var fileURI = data.payload.path;
             var options = new FileUploadOptions();
-            var params = {client: 'phonegap'};
+            var params = {
+                client: 'phonegap',
+                "Content-Type": "image/jpeg"
+            };
 
             options.fileKey  = "file";
             options.fileName = fileURI.substr(fileURI.lastIndexOf('/')+1);
