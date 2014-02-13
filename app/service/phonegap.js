@@ -28,17 +28,38 @@ define(['service/api'], function(api){
         };
 
         this.uploadFile = function (data, cb){
-            var fileURI = data.payload.path;
+            var expiration = new Date(new Date().getTime() + 1000 * 60 * 5).toISOString(),
+                fileURI = data.payload.path,
+                fileName = fileURI.substr(fileURI.lastIndexOf('/')+1),
+                policy ={ "expiration": expiration,
+                    "conditions": [
+                        {"bucket": "helopetry"},
+                        {"key": fileName},
+                        {"acl": 'public-read'},
+                        ["starts-with", "$Content-Type", ""],
+                        ["content-length-range", 0, 524288000]
+                    ]
+                },
+                policyBase64 = new Buffer(JSON.stringify(policy), 'utf8').toString('base64'),
+                secretKey = "I6r7x7Xdqi4y9jMtTRfgCVa8hr/P9y94pyizVc9E",
+                signature = CryptoJS.SHA1(secretKey).update(new Buffer(base64Policy, "utf-8")).digest("base64"),
+                awsKey = 'AKIAJL4YJ2S7PPYPQUNQ',
+                acl = "public-read";               
+
             var options = new FileUploadOptions();
-            var params = {
-                client: 'phonegap',
-                "Content-Type": "image/jpeg"
-            };
 
             options.fileKey  = "file";
-            options.fileName = fileURI.substr(fileURI.lastIndexOf('/')+1);
+            options.fileName = fileName;
             options.mimeType = "image/jpeg";
-            options.params   = params;
+            options.chunkedMode = "true";
+            options.params   = {
+                "key": fileName,
+                "AWSAccessKeyId": awsKey,
+                "acl": acl,
+                "policy": policyBase64,
+                "signature": signature,
+                "Content-Type": "image/jpeg"
+            };
 
             var ft = new FileTransfer();
 
@@ -46,7 +67,7 @@ define(['service/api'], function(api){
                 if(! errors && payload._id){
                     ft.upload(
                         fileURI,
-                        encodeURI(api.mediaURI+payload._id),
+                        encodeURI('https://mediasteazin.s3.amazonaws.com/'+payload._id),
                         function(r){
                             cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
                         },

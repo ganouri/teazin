@@ -29,6 +29,7 @@
             'iscroll': '../js/iscroll',
             'iscroll5': '../js/iscroll5',
             'domReady': '../js/domReady',
+            'crypto': '../js/hmac-sha1',
             /*'cordova': (isMobile()) ?
                         ['../cordova']
                         :
