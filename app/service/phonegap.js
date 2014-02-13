@@ -67,7 +67,7 @@ define(['service/api'], function(api){
                 if(! errors && payload._id){
                     ft.upload(
                         fileURI,
-                        encodeURI('https://helopetry.s3.amazonaws.com/'+payload._id),
+                        encodeURI(api.mediaURI+payload._id),
                         function(r){
                             cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
                         },
