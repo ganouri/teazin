@@ -36,7 +36,7 @@ define(['service/api'], function(api){
             options.fileKey = "file";
             options.fileName = fileName;
             options.mimeType = "image/jpeg";
-            options.chunkedMode = true;
+            options.chunkedMode = "true";
 
             api.signMedia(options.fileName,function(signedParams){
                 console.log('data',signedParams)
@@ -61,13 +61,12 @@ define(['service/api'], function(api){
                                 cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
                             },
                             function(e){
-                                console.log('arguments:'+JSON.stringify(arguments));
                                 console.log('failed to upload:'+JSON.stringify(e));
                                 cb(_.extend(data, {upload: undefined, error: 'FAILED'}));
                             },
                             options
                         );
-                    }else{
+                    } else {
                         console.log('errors:'+JSON.stringify(errors));
                     }
                 });
