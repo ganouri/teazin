@@ -123,6 +123,12 @@ define(['jquery', 'md5', 'options'], function($, md5, opts){
 			});
 		};
 
+		this.signMedia = function(fileName,cb){
+			$.get(url+'secure/'+state.token+'/media/'+fileName+'/signMedia/', function(res){
+				cb(res.payload);
+			});
+		};
+
 		return this;
 	};
 
