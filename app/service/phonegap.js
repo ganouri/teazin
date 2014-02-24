@@ -57,7 +57,7 @@ define(['service/api'], function(api){
                         ft.upload(
                             fileURI,
                             //encodeURI(api.mediaURI+payload._id),
-                            "http://helopetry.s3.amazonaws.com/",
+                            "https://"+ signedParams.bucket + ".s3.amazonaws.com/",
                             function(r){
                                 cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
                             },
