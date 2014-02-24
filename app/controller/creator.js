@@ -2,15 +2,15 @@
 'use strict';
 
 define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service/api','service/state',
-	'views/creator',
-  'model/creator',
-  'service/control',
-  'views/itemConfig',
-  'controller/card',
-  'views/card'
-  ],function($, _, hammer, ev,trans,iscroll,frag, api, state, creatorView,creatorModel,controls,itemConfigView,CardCtrl,cardView){
-	return function(config) {
-		var _this = this;
+        'views/creator',
+        'model/creator',
+        'service/control',
+        'views/itemConfig',
+        'controller/card',
+        'views/card'
+    ],function($, _, hammer, ev,trans,iscroll,frag, api, state, creatorView,creatorModel,controls,itemConfigView,CardCtrl,cardView){
+    return function(config) {
+        var _this = this;
     var $el;
 
     _this.creatorState = _.extend({
@@ -41,37 +41,37 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
     };
 
     if(typeof config != 'undefined'){
-      _this.cardData.primaryMedia = { type: config.medias[0].payload.type };
-      if (_this.cardData.primaryMedia.type == "Picture" ) {
-        _this.cardData.primaryMedia.content = 'https://helopetry.s3.amazonaws.com/'+config.medias[0].payload.id;
-        _this.cardData.primaryMedia.localpath = config.medias[0].payload.path ;
+        _this.cardData.primaryMedia = { type: config.medias[0].payload.type };
+        if (_this.cardData.primaryMedia.type == "Picture" ) {
+        //_this.cardData.primaryMedia.content = 'https://helopetry.s3.amazonaws.com/'+config.medias[0].payload.id;
+        _this.cardData.primaryMedia.content = config.medias[0].payload.path ;
       } else if (_this.cardData.primaryMedia.type == "Text") {
          _this.cardData.primaryMedia.content = config.medias[0].payload.content ;
       }
     }
 
-		this.regAddContacts = function() {
+        this.regAddContacts = function() {
       var elem = $('.app-creator-screen .header .action-right .inticon-add-contact');
       _this.regCard();
 
       elem.on('click', function(){
-				var contactConfig = {
+                var contactConfig = {
           viewType : 'selectOnly',
           keep: true,
           players: _this.creatorState.players,
           cb: function(payload){
             _this.creatorState.players = payload;
           }
-				};
-				ev.fire('openContacts', contactConfig);
-			});
+                };
+                ev.fire('openContacts', contactConfig);
+            });
 
       // HAVE TO BE INSIDE regAddContacts to be called from nav.js, WHY ??? GUIGUI
       ev.on('renderRecipients', 'CreatorCtrl', function() {
         _this.regCard();
       });
 
-		};
+        };
 
     this.updateCard = function() {
       _this.cardData.games[0].locks = [];
@@ -98,7 +98,6 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
           //create resc server side
           api.composeResc(roomId, resc, function(res){
             if(res.errors){return;}
-
             setTimeout(function(){
               ev.fire('clearFullStack');
               ev.fire('openRoom',roomId);
@@ -126,7 +125,7 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
 
     this.render = function(sel){
       $el = $(sel);
-			var html = creatorView();
+            var html = creatorView();
       $el.html(html);
 
       $('.addLocks').on('click',function(){
@@ -143,6 +142,6 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
       setTimeout(function(){
         var creatorScroll = new IScroll('#creatorWrapper', {click: true, scrollbars: true});
       }, 500);
-		};
-	};
+        };
+    };
 });

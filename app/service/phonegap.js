@@ -29,14 +29,14 @@ define(['service/api'], function(api){
 
         this.uploadFile = function (data, cb){
             var fileURI = data.payload.path,
-                fileName = fileURI.substr(fileURI.lastIndexOf('/')+1);            
+                fileName = fileURI.substr(fileURI.lastIndexOf('/')+1);
 
             var options = new FileUploadOptions();
 
             options.fileKey = "file";
             options.fileName = fileName;
             options.mimeType = "image/jpeg";
-            options.chunkedMode = "true";
+            options.chunkedMode = "false";
 
             api.signMedia(options.fileName,function(signedParams){
                 console.log('data',signedParams)
@@ -56,7 +56,8 @@ define(['service/api'], function(api){
                     if(! errors && payload._id){
                         ft.upload(
                             fileURI,
-                            encodeURI(api.mediaURI+payload._id),
+                            //encodeURI(api.mediaURI+payload._id),
+                            "http://helopetry.s3.amazonaws.com/",
                             function(r){
                                 cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
                             },

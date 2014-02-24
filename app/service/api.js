@@ -48,7 +48,7 @@ define(['jquery', 'md5', 'options'], function($, md5, opts){
 				_this.update(function(){});
 				cb(res.errors,res.payload);
 			});
-		}
+		};
 
 		this.addContact = function(email,cb) {
 			$.get(url+'secure/'+state.token+'/contact/add/'+email,function(res){
@@ -119,6 +119,31 @@ define(['jquery', 'md5', 'options'], function($, md5, opts){
 
 		this.getMediaId = function(cb){
 			$.get(_this.mediaURI, function(res){
+				cb(res.errors,res.payload);
+			});
+		};
+
+		this.uploadMedia = function(roomId,rescId,mediaId,imageBuffer,cb){
+			//var image = require('fs').readFileSync(fileName);
+			//var imageBuffer = new Buffer(image, 'binary');
+			$.request({
+				method: 'POST',
+				uri: url+'/secure/'+state.token+'/room/'+roomId +'/resource/'+rescId+'/media/'+mediaId,
+				headers: {'content-type': 'multipart/form-data'},
+				multipart: [{
+					'Content-Disposition': 'form-data; name="my_file"; filename="flower.jpg"',
+					'Content-Type': 'image/jpeg',
+					'Content-Transfer-Encoding': 'base64',
+					body: imageBuffer
+				}]
+			}, function(res){
+				cb(res.errors,res.payload);
+			});
+
+		};
+
+		this.downloadMedia = function(roomId,rescId,mediaId,cb){
+			$.get(url+'/secure/'+state.token+'/room/'+roomId+'/resource/'+rescId+'/media/'+mediaId, function(res) {
 				cb(res.errors,res.payload);
 			});
 		};
