@@ -2,7 +2,7 @@
 'use strict';
 
 define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service/api','service/state',
-        'service/mediaprovider'
+        'service/mediaprovider',
         'views/creator',
         'model/creator',
         'service/control',
