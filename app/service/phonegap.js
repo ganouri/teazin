@@ -36,7 +36,7 @@ define(['service/api'], function(api){
             options.fileKey = "file";
             options.fileName = fileName;
             options.mimeType = "image/jpeg";
-            options.chunkedMode = "true";
+            options.chunkedMode = "false";
 
             api.signMedia(options.fileName,function(signedParams){
                 console.log('data',signedParams)

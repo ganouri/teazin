@@ -2,13 +2,14 @@
 'use strict';
 
 define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service/api','service/state',
+        'service/mediaprovider'
         'views/creator',
         'model/creator',
         'service/control',
         'views/itemConfig',
         'controller/card',
         'views/card'
-    ],function($, _, hammer, ev,trans,iscroll,frag, api, state, creatorView,creatorModel,controls,itemConfigView,CardCtrl,cardView){
+    ],function($, _, hammer, ev,trans,iscroll,frag, api, state, mp, creatorView,creatorModel,controls,itemConfigView,CardCtrl,cardView){
     return function(config) {
         var _this = this;
     var $el;
@@ -44,6 +45,7 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
         _this.cardData.primaryMedia = { type: config.medias[0].payload.type };
         if (_this.cardData.primaryMedia.type == "Picture" ) {
         _this.cardData.primaryMedia.content = config.medias[0].payload.id;
+        mp.getMediaPath(_this.cardData.primaryMedia.content);
       } else if (_this.cardData.primaryMedia.type == "Text") {
          _this.cardData.primaryMedia.content = config.medias[0].payload.content ;
       }
