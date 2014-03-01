@@ -44,7 +44,6 @@ define(['jquery', 'service/api'], function ($, api) {
                                 localPath,
                                 function(entry) {
                                     $("[mediaId='"+_id+"']").css("background-image", "url("+localPath+")");
-                                    alert('updated');
                                 },
                                 function(error) {
                                     console.log("download error source " + error.source);
