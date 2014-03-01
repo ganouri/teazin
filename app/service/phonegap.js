@@ -39,7 +39,6 @@ define(['service/api'], function(api){
             options.chunkedMode = "false";
 
             api.signMedia(options.fileName,function(signedParams){
-                console.log('data',signedParams)
                 options.params = {
                     "key": fileName,
                     "AWSAccessKeyId": signedParams.awsKey,
@@ -48,7 +47,6 @@ define(['service/api'], function(api){
                     "signature": signedParams.signature,
                     "Content-Type": "image/jpeg"
                 };
-                console.log('options',options);
 
                 var ft = new FileTransfer();
 

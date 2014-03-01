@@ -19,9 +19,16 @@ define(['jquery', 'service/api'], function ($, api) {
 
             IsValidImageUrl(localPath, function(url, answer) {
                 if (answer) {
-                    alert('right url');
+                    alert('local is here');
                 } else {
-                    alert('wrong url');
+                    alert('local is missing');
+                }
+            });
+            IsValidImageUrl(distantPath, function(url, answer) {
+                if (answer) {
+                    alert('distant is here');
+                } else {
+                    alert('distant is missing');
                 }
             });
         }
