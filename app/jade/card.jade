@@ -1,6 +1,6 @@
 .rewardZone.cardZone(class='#{card.viewConfig.gameView} #{card.viewConfig.playersView}')
     if card.primaryMedia.type === 'Picture'
-        .rewardImg(style='background-image:url("#{card.primaryMedia.content}")')
+        .rewardImg(style='background-image:url("#{card.primaryMedia.path}")', mediaId='#{card.primaryMedia.id}')
     else if card.primaryMedia.type === 'Text'
         .rewardText
             p #{card.primaryMedia.content}

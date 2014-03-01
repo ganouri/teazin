@@ -46,9 +46,8 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
         if (_this.cardData.primaryMedia.type == "Picture" ) {
           var filePath = config.medias[0].payload.path;
           _this.cardData.primaryMedia.content = filePath;
-          
           var fileName = filePath.substr(filePath.lastIndexOf('/')+1);
-          mp.getMediaPath(fileName);
+          _this.cardData.primaryMedia.id = fileName;
 
       } else if (_this.cardData.primaryMedia.type == "Text") {
          _this.cardData.primaryMedia.content = config.medias[0].payload.content ;
