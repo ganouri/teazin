@@ -43,8 +43,7 @@ define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service
     if(typeof config != 'undefined'){
         _this.cardData.primaryMedia = { type: config.medias[0].payload.type };
         if (_this.cardData.primaryMedia.type == "Picture" ) {
-        //_this.cardData.primaryMedia.content = 'https://helopetry.s3.amazonaws.com/'+config.medias[0].payload.id;
-        _this.cardData.primaryMedia.content = config.medias[0].payload.path ;
+        _this.cardData.primaryMedia.content = config.medias[0].payload.id;
       } else if (_this.cardData.primaryMedia.type == "Text") {
          _this.cardData.primaryMedia.content = config.medias[0].payload.content ;
       }

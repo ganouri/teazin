@@ -36,7 +36,7 @@ define(['service/api'], function(api){
             options.fileKey = "file";
             options.fileName = fileName;
             options.mimeType = "image/jpeg";
-            options.chunkedMode = "false";
+            options.chunkedMode = "true";
 
             api.signMedia(options.fileName,function(signedParams){
                 console.log('data',signedParams)
@@ -59,7 +59,8 @@ define(['service/api'], function(api){
                             //encodeURI(api.mediaURI+payload._id),
                             "https://"+ signedParams.bucket + ".s3.amazonaws.com/",
                             function(r){
-                                cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
+                                //cb(_.extend(data, {upload: JSON.parse(r.response), error: undefined}));
+                                cb(_.extend(data, {upload: 'uploaded', error: undefined}));
                             },
                             function(e){
                                 console.log('failed to upload:'+JSON.stringify(e));
