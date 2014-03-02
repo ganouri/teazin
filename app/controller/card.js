@@ -20,7 +20,7 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag',
 
         _this.cardDataSet = {
             players: [],
-            primaryMedia: config.cardData.primaryMedia || {type: '', content: '',id: '', path: ''},
+            primaryMedia: config.cardData.primaryMedia || {type: '', content: ''},
             user: {
                 _id: config.cardData.user || '',
                 nickname: _this.getNickname(config.cardData.user),
@@ -36,8 +36,11 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag',
         if (typeof _this.cardDataSet.primaryMedia.id != 'undefined') { // GUIGUI to modify later
             _this.cardDataSet.primaryMedia.path = mp.getMediaPath(_this.cardDataSet.primaryMedia.id);
             mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
+            console.log('id defined')
         } else {
-            _this.cardDataSet.primaryMedia.path = "";
+            _this.cardDataSet.primaryMedia.path = '';
+            _this.cardDataSet.primaryMedia.id = '';
+            console.log('id undefined')
         }
 
         // extend players

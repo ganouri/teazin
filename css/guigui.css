@@ -391,6 +391,12 @@
     height: 219px;
     width: 100%;
 }
+.rewardZone .rewardImg[loading^="../images"]{
+    background-size: 66px 66px; 
+    background-repeat: no-repeat;
+    height: 219px;
+    width: 100%;
+}
 
 .rewardZone .rewardText{
     background-color: rgba(20,19,30,1);
