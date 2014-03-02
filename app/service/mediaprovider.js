@@ -40,7 +40,9 @@ define(['jquery', 'underscore', 'ev',
             return _.contains(_this.localMedias,_id) ? localPath : ''
         }
 
-        this.updateMediaPaths = function (idList) { // asynchronous
+        this.updateMediaPaths = function (order) { // asynchronous
+
+            var idList = order || _this.loadList;
 
             _.each(idList, function(_id){
 
@@ -72,7 +74,7 @@ define(['jquery', 'underscore', 'ev',
                                     }
                                 );
                             } else {
-                                console.log('image not found on s3');
+                                console.log('image not found on s3'); // GUIGUI to be cleared
                             }
                         });
                     }

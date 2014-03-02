@@ -1,13 +1,13 @@
 /*globals define, Image*/
 'use strict';
 
-define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'service/api', 'service/state',
-	'views/settings', 'service/control'],function($, _, hammer, ev,iscroll, trans,frag, api, state, settingsView, controls){
+define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'service/api', 'service/state', 'service/mediaprovider',
+	'views/settings', 'service/control'],function($, _, hammer, ev,iscroll, trans,frag, api, state, mp, settingsView, controls){
 	return function(config) {
 		var _this = this;
 
 		_this.settingsData = _.extend({
-			profilePic : state.base.profilePic || 'images/user/anonymous.jpg',
+			profilePic : mp.getMediaPath(state.base.profilePic) || '../images/user/anonymous.jpg',
 			nickname : state.base.nickname,
 			email : state.base.email
 		},config);
@@ -16,6 +16,8 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
 		this.render = function(sel){
 			var html = settingsView({data:_this.settingsData});
 			var $el = $(sel).html(html);
+
+            mp.updateMediaPaths([state.base.profilePic]);
 
 			$el.find('.setting-header').each(function(index,item){
 				var $item = $(item);

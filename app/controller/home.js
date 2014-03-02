@@ -9,10 +9,11 @@ define([
 	'scrollRefresh',
 	'frag',
 	'service/state',
+	'service/mediaprovider',
 	'service/api',
 	'views/home',
 	'views/roomlist'
-	], function($, ko, hammer, ev, scrollRefresh, frag, state, api, homeView, roomListFrag){
+	], function($, ko, hammer, ev, scrollRefresh, frag, state, mp, api, homeView, roomListFrag){
 
 	return function() {
 		var _this = this;
@@ -69,7 +70,7 @@ define([
 							
 							var face = {
 								id:playerId,
-								profilePic: state.base.contacts[playerId].profilePic || 'images/user/anonymous.jpg'
+								profilePic: mp.getMediaPath(state.base.contacts[playerId].profilePic) || '../images/user/anonymous.jpg'
 							}
 							roomData.players.faces.push(face);				
 						}
@@ -103,6 +104,8 @@ define([
 
 			var html = homeView({state: state});
 			$el.html(html);
+
+			mp.updateMediaPaths();
 
 		    ev.on('updateRoomList','RoomCtrl',function(){
 				api.update(function(){});

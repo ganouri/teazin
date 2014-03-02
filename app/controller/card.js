@@ -19,9 +19,9 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
 
         this.getProfilePic = function(_id){
             if (_id == state.base._id) {
-                return mp.getMediaPath(state.base.profilePic);
+                return mp.getMediaPath(state.base.profilePic) || '../images/user/anonymous.jpg';
             } else {
-                return mp.getMediaPath(state.contacts[_id].profilePic);
+                return mp.getMediaPath(state.contacts[_id].profilePic) || '../images/user/anonymous.jpg';
             }
         }
 
