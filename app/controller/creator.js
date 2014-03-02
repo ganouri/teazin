@@ -2,14 +2,13 @@
 'use strict';
 
 define(['jquery','underscore', 'hammer', 'ev','trans','iscroll5','frag','service/api','service/state',
-        'service/mediaprovider',
         'views/creator',
         'model/creator',
         'service/control',
         'views/itemConfig',
         'controller/card',
         'views/card'
-    ],function($, _, hammer, ev,trans,iscroll,frag, api, state, mp, creatorView,creatorModel,controls,itemConfigView,CardCtrl,cardView){
+    ],function($, _, hammer, ev,trans,iscroll,frag, api, state, creatorView,creatorModel,controls,itemConfigView,CardCtrl,cardView){
     return function(config) {
         var _this = this;
     var $el;

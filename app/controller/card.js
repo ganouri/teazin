@@ -44,12 +44,6 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
             }
         };
 
-        
-        _this.cardDataSet.primaryMedia.path = mp.getMediaPath(_this.cardDataSet.primaryMedia.id);
-        mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
-        console.log( _this.cardDataSet.primaryMedia.id);
-        console.log( _this.cardDataSet.primaryMedia.path);
-
         // extend players
         _this.cardDataSet.players = _.map(config.cardOptions.players,function(playerId){return {
             _id: playerId,
@@ -99,6 +93,8 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
             _this.cardDataSet.viewConfig.playersView = _this.cardDataSet.players.length ? _this.cardDataSet.viewConfig.playersView : 'players_off';
 
             var elem = $el.html(cardView({card:_this.cardDataSet,controls:controls}));
+
+            mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
 
             if (config.cardOptions.clickable) {
                 $(elem).on('click',function(){

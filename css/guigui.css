@@ -385,15 +385,18 @@
     height: 219px;
 }
 
-.rewardZone .rewardImg{
-    background-size: cover;
+.rewardZone .loadingImg{
+    background-image:url("../images/loaders/missingMedia.gif");
+    background-size: 66px 66px;
     background-position: center;
+    background-repeat: no-repeat;
     height: 219px;
     width: 100%;
 }
-.rewardZone .rewardImg[loading^="../images"]{
-    background-size: 66px 66px; 
-    background-repeat: no-repeat;
+
+.rewardZone .rewardImg{
+    background-size: cover;
+    background-position: center;
     height: 219px;
     width: 100%;
 }

@@ -1,7 +1,7 @@
 /*global define */
 'use strict';
 
-define(['jquery', 'service/api'], function ($, api) {
+define(['jquery', 'ev', 'service/api'], function ($, ev, api) {
 
     var MediaProvider = function() {
 
@@ -12,20 +12,6 @@ define(['jquery', 'service/api'], function ($, api) {
             img.src = url;
         }
 
-        this.getMediaPath = function (_id) {
-
-            var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
-                mediaPath = localPath;
-
-            IsValidImageUrl(localPath, function(url, localTest) {
-                if (!localTest){
-                    mediaPath = '../images/loaders/missingMedia.gif';
-                }
-            });
-
-            return mediaPath;
-        };
-
         this.updateMediaPath = function (_id) {
 
             var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
@@ -33,7 +19,7 @@ define(['jquery', 'service/api'], function ($, api) {
 
             IsValidImageUrl(localPath, function(url, localTest) {
                 if (localTest) {
-                    return true;
+                    $(".rewardImg[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                 } else {
                     IsValidImageUrl(distantPath, function(url, distantTest) {
                         if (distantTest) {
@@ -43,7 +29,7 @@ define(['jquery', 'service/api'], function ($, api) {
                                 distantPath,
                                 localPath,
                                 function(entry) {
-                                    $("[mediaId='"+_id+"']").css("background-image", "url("+localPath+")");
+                                    $(".rewardImg[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                                 },
                                 function(error) {
                                     console.log("download error source " + error.source);
@@ -52,7 +38,7 @@ define(['jquery', 'service/api'], function ($, api) {
                                 }
                             );
                         } else {
-                            alert('distant image is missing');
+                            console.log('image not found on s3');
                         }
                     });
                 }
