@@ -17,7 +17,9 @@ define(['jquery', 'service/api'], function ($, api) {
             var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
                 distantPath = 'https://teazinmedias.s3.amazonaws.com/'+_id;
 
-            console.log('localPath',localPath);
+            console.log(localPath);
+
+            console.log(_id);
 
             IsValidImageUrl(localPath, function(url, localTest) {
                 if (localTest) {

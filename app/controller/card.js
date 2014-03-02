@@ -37,6 +37,7 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag',
             _this.cardDataSet.primaryMedia.path = mp.getMediaPath(_this.cardDataSet.primaryMedia.id);
             mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
             console.log('id defined')
+            console.log( _this.cardDataSet.primaryMedia.path)
         } else {
             _this.cardDataSet.primaryMedia.path = '';
             _this.cardDataSet.primaryMedia.id = '';
