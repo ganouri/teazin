@@ -15,10 +15,12 @@ define(['jquery', 'service/api'], function ($, api) {
         this.getMediaPath = function (_id) {
 
             var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
-                distantPath = 'https://teazinmedias.s3.amazonaws.com/'+_id;
+                mediaPath = localPath;
 
-            var mediaPath = IsValidImageUrl(localPath, function(url, localTest) {
-                return localTest ? url : '../images/loaders/missingMedia.gif';
+            IsValidImageUrl(localPath, function(url, localTest) {
+                if (!localTest){
+                    mediaPath = '../images/loaders/missingMedia.gif';
+                }
             });
 
             return mediaPath;
