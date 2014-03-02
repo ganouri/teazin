@@ -1,7 +1,14 @@
 /*globals define, Image*/
 'use strict';
 
-define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag', 'service/api', 'service/state', 'service/control', 'service/mediaprovider', 'views/card'],function($, _, hammer, moment, vague, ev,trans,frag, api, state, controls, mp, cardView){
+define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
+        'frag',
+        'service/api',
+        'service/state',
+        'service/control',
+        'service/mediaprovider',
+        'views/card'
+    ],function($, _, hammer, moment, vague, ev,trans,frag, api, state, controls, mp, cardView){
     return function(config) {
         var _this = this;
         var $el;
@@ -20,7 +27,11 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag',
 
         _this.cardDataSet = {
             players: [],
-            primaryMedia: config.cardData.primaryMedia || {type: '', content: ''},
+            primaryMedia: {
+                type: config.cardData.primaryMedia.type || '',
+                content: config.cardData.primaryMedia.content || '',
+                id: config.cardData.primaryMedia.id || ''
+            },
             user: {
                 _id: config.cardData.user || '',
                 nickname: _this.getNickname(config.cardData.user),
@@ -33,16 +44,11 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','frag',
             }
         };
 
-        if (typeof _this.cardDataSet.primaryMedia.id != 'undefined') { // GUIGUI to modify later
-            _this.cardDataSet.primaryMedia.path = mp.getMediaPath(_this.cardDataSet.primaryMedia.id);
-            mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
-            console.log('id defined')
-            console.log( _this.cardDataSet.primaryMedia.path)
-        } else {
-            _this.cardDataSet.primaryMedia.path = '';
-            _this.cardDataSet.primaryMedia.id = '';
-            console.log('id undefined')
-        }
+        
+        _this.cardDataSet.primaryMedia.path = mp.getMediaPath(_this.cardDataSet.primaryMedia.id);
+        mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
+        console.log( _this.cardDataSet.primaryMedia.id);
+        console.log( _this.cardDataSet.primaryMedia.path);
 
         // extend players
         _this.cardDataSet.players = _.map(config.cardOptions.players,function(playerId){return {
