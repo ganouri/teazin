@@ -6,7 +6,7 @@ var locals_ = (locals || {}),card = locals_.card,controls = locals_.controls;
 buf.push("<div" + (jade.cls(['rewardZone','cardZone','' + (card.viewConfig.gameView) + ' ' + (card.viewConfig.playersView) + ''], [null,null,true])) + ">");
 if ( card.primaryMedia.type === 'Picture')
 {
-buf.push("<div class=\"loadingImg\"><div style=\"background-image:url(&quot;&quot;)\"" + (jade.attr("mediaId", '' + (card.primaryMedia.id) + '', true, false)) + " class=\"rewardImg\"></div></div>");
+buf.push("<div class=\"loadingImg\"><div" + (jade.attr("style", 'background-image:url("' + (card.primaryMedia.path) + '")', true, false)) + (jade.attr("mediaId", '' + (card.primaryMedia.id) + '', true, false)) + " class=\"rewardImg\"></div></div>");
 }
 else if ( card.primaryMedia.type === 'Text')
 {

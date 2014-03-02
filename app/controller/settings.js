@@ -40,8 +40,10 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
                     quality: 25}
                 }];
                 ev.fire('captureMedia', orders, function(medias){
-                	api.updateUser({profilePic:medias[0].payload.path},function(err,payload){
-	                	ev.fire('openSettings', {profilePic: medias[0].payload.path});
+                    var filePath = config.medias[0].payload.path;
+                    var fileName = filePath.substr(filePath.lastIndexOf('/')+1);
+                	api.updateUser({profilePic:fileName},function(err,payload){
+	                	ev.fire('openSettings', {profilePic: filePath});
                 	});
                 });
 			});

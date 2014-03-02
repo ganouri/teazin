@@ -19,9 +19,9 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
 
         this.getProfilePic = function(_id){
             if (_id == state.base._id) {
-                return state.base.profilePic || 'images/user/anonymous.jpg'
+                return mp.getMediaPath(state.base.profilePic);
             } else {
-                return state.contacts[_id].profilePic || 'images/user/anonymous.jpg'
+                return mp.getMediaPath(state.contacts[_id].profilePic);
             }
         }
 
@@ -44,12 +44,16 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
             }
         };
 
+        _this.cardDataSet.primaryMedia.path = mp.getMediaPath(_this.cardDataSet.primaryMedia.id);
+
         // extend players
-        _this.cardDataSet.players = _.map(config.cardOptions.players,function(playerId){return {
-            _id: playerId,
-            nickname: _this.getNickname(playerId),
-            profilePic: _this.getProfilePic(playerId)
-        }})
+        _this.cardDataSet.players = _.map(config.cardOptions.players,function(playerId){
+            return {
+                _id: playerId,
+                nickname: _this.getNickname(playerId),
+                profilePic: _this.getProfilePic(playerId)
+            }
+        })
 
         // create currentGame
         if (typeof config.cardData.games != 'undefined' && config.cardData.games.length) {
@@ -94,7 +98,7 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
 
             var elem = $el.html(cardView({card:_this.cardDataSet,controls:controls}));
 
-            mp.updateMediaPath(_this.cardDataSet.primaryMedia.id);
+            mp.updateMediaPaths();
 
             if (config.cardOptions.clickable) {
                 $(elem).on('click',function(){
