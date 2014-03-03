@@ -705,6 +705,19 @@ body{
   width: 60px;
 }
 
+.contactSelectBox{
+  background-image: url('../images/ui/empty.png');
+  background-position:0px 6px;
+  background-repeat:no-repeat;
+  font-size:12px;
+  padding-left:25px;
+  line-height:30px;
+}
+
+.contactSelected{
+  background-image: url('../images/ui/tick.png');
+}
+
 .contact-info p{
   font-style:normal;
   margin: 0;

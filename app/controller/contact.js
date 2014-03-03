@@ -105,7 +105,7 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
 
         this.updateConfig = function() {
             _this.state.players = [state.base._id];
-            $('.checked-v4').parents('.contact-card').each(function(){
+            $('.contactSelected').parents('.contact-card').each(function(){
                 _this.state.players.push($(this).attr('data-id'));
             });
 
@@ -222,7 +222,7 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
             ev.fire('regEmptyButton','.app-contact-screen');
 
             _.each(_this.state.players, function(id){
-                $el.find('*[data-id="'+id+'"] .checker').addClass('checked-v4');
+                $el.find('*[data-id="'+id+'"] .checker').addClass('contactSelected');
             }, $el);
 
             setTimeout(function(){

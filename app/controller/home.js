@@ -108,10 +108,9 @@ define([
 			var html = homeView({state: state});
 			$el.html(html);
 
-			mp.updateMediaPaths();
-
 		    ev.on('updateRoomList','RoomCtrl',function(){
 				api.update(function(){});
+				mp.updateMediaPaths();
 			});
 
 			ev.fire('updateRoomList');
