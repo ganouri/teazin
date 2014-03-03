@@ -48,7 +48,6 @@ define(['jquery','ev','iscroll'],function($,ev,iscroll){
                             pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';                                
 
                             ev.fire(refreshEvent);
-                            scrollRefresh.refresh();
                     } /*else if (pullUpEl.className.match('flip')) {
                             pullUpEl.className = 'loading';
                             pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';                                

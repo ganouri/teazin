@@ -128,7 +128,7 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
                 _this.state.players.push($(this).attr('data-id'));
             });
 
-            if(_this.state.players.length) {
+            if(_this.state.players.length > 1) {
                 $('.app-contact-screen .roomAccess p').html('Open a conversation with them');
                 $('.app-contact-screen .roomAccess').addClass('activeClick');
             } else {
@@ -179,7 +179,7 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
 
             $el.find('.roomAccess').on('click',function(){
 
-                if(_this.state.players.length) {
+                if(_this.state.players.length > 1) {
                     var membersId = _this.state.players;
 
                     api.getRoomId(membersId,function(err,payload){
@@ -193,6 +193,8 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
                             ev.fire('openRoom', payload);
                         },500);
                     });
+                } else {
+                    alert ('Please select at least 1 contact.');
                 }
             });
 
