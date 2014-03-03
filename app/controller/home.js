@@ -107,10 +107,12 @@ define([
 
 			var html = homeView({state: state});
 			$el.html(html);
+            
+            _this.renderRoomList();
+			mp.updateMediaPaths();
 
 		    ev.on('updateRoomList','RoomCtrl',function(){
 				api.update(function(){});
-				mp.updateMediaPaths();
 			});
 
 			ev.fire('updateRoomList');
@@ -126,6 +128,7 @@ define([
 
 			ev.on('baseUpdated','contactCtrl',function(){
             	_this.renderRoomList();
+				mp.updateMediaPaths();
             	if (!scrollInPlace) {
 					scrollRefresh('roomlistWrapper','updateRoomList');
 					document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);

@@ -470,6 +470,7 @@ body{
   width:100%;
   top:58px;
   height:120px;
+  background-color: white;
 }
 
 .profile-settings .profile-picture, .profile-info{

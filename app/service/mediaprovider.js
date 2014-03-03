@@ -27,7 +27,7 @@ define(['jquery', 'underscore', 'ev',
             if (_.contains(_this.localMedias,_id)) {
                 return localPath;
             } else {
-                _this.loadList.push(_id);
+                if(!_.contains(loadList,_id) _this.loadList.push(_id)
                 return '';
             }
         }

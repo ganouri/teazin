@@ -20,8 +20,6 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
 			var html = settingsView({data:_this.settingsData});
 			var $el = $(sel).html(html);
 
-            mp.updateMediaPaths([state.base.profilePic]);
-
 			$el.find('.setting-header').each(function(index,item){
 				var $item = $(item);
 				hammer(item).on('tap',function(event){
@@ -50,16 +48,18 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
                     console.log(fileName)
                 	api.updateUser({profilePic:fileName},function(err,payload){
 	                	ev.fire('openSettings', {
-                            /*profilePic: {
+                            profilePic: {
                                 path: filePath,
                                 id: fileName
-                            }*/
+                            }
                         });
                 	});
                 });
 			});
 
 			ev.fire('clearFullStack');
+
+            mp.updateMediaPaths();
 
 			setTimeout(function(){
                 var settingsScroll = new IScroll('#settingsWrapper', {click: true, scrollbars: true});
