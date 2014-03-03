@@ -13,7 +13,7 @@ if card.viewConfig.gameView == 'locked'
     .gameZone.cardZone(class='#{card.viewConfig.gameView} #{card.viewConfig.playersView}')
         .gameHeader
             .gameCreator
-                .face(style='background-image:url("#{card.currentGame.user.profilePic}")')
+                .face(style='background-image:url("#{card.currentGame.user.profilePic.path}")', mediaId='#{card.currentGame.user.profilePic.id}')
             .gameMeta
                 .playerName.gameMetaText
                     p.noWrap Locked by #{card.currentGame.user.nickname}
@@ -31,7 +31,7 @@ if card.viewConfig.gameView == 'unlocked'
     .cardZone.attemptZone(class='#{card.viewConfig.gameView} #{card.viewConfig.playersView}')
         .gameHeader
             .gameCreator
-                .face(style='background-image:url("#{card.currentGame.latestAttempt.user.profilePic}")')
+                .face(style='background-image:url("#{card.currentGame.latestAttempt.user.profilePic.path}")', mediaId='#{card.currentGame.latestAttempt.user.profilePic.id}')
             .gameMeta
                 .playerName.gameMetaText
                     p.noWrap Unlocked by #{card.currentGame.latestAttempt.user.nickname}
@@ -51,4 +51,4 @@ if card.viewConfig.playersView != 'players_off'
         for player in card.players
             if player._id != card.user._id && i < 4
                 - i ++
-                    .face(style='background-image:url("#{player.profilePic}")')
+                    .face(style='background-image:url("#{player.profilePic.path}")', mediaId='#{player.profilePic.id}')

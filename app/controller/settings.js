@@ -44,8 +44,9 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
                 ev.fire('captureMedia', orders, function(medias){
                     var filePath = config.medias[0].payload.path;
                     var fileName = filePath.substr(filePath.lastIndexOf('/')+1);
+                    console.log(fileName)
                 	api.updateUser({profilePic:fileName},function(err,payload){
-	                	ev.fire('openSettings', {profilePic: filePath});
+	                	ev.fire('openSettings', {profilePic: fileName});
                 	});
                 });
 			});

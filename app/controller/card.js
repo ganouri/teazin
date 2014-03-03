@@ -19,9 +19,15 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
 
         this.getProfilePic = function(_id){
             if (_id == state.base._id) {
-                return mp.getMediaPath(state.base.profilePic) || '../images/user/anonymous.jpg';
+                return {
+                    path: mp.getMediaPath(state.base.profilePic) || '../images/user/anonymous.jpg',
+                    id: state.base.profilePic
+                };
             } else {
-                return mp.getMediaPath(state.contacts[_id].profilePic) || '../images/user/anonymous.jpg';
+                return {
+                    path: mp.getMediaPath(state.contacts[_id].profilePic) || '../images/user/anonymous.jpg',
+                    id: state.contacts[_id].profilePic
+                };
             }
         }
 

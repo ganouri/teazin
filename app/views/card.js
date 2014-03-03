@@ -19,7 +19,7 @@ buf.push("<div class=\"rewardMask\"><div class=\"maskLock\"><div class=\"inticon
 buf.push("</div>");
 if ( card.viewConfig.gameView == 'locked')
 {
-buf.push("<div" + (jade.cls(['gameZone','cardZone','' + (card.viewConfig.gameView) + ' ' + (card.viewConfig.playersView) + ''], [null,null,true])) + "><div class=\"gameHeader\"><div class=\"gameCreator\"><div" + (jade.attr("style", 'background-image:url("' + (card.currentGame.user.profilePic) + '")', true, false)) + " class=\"face\"></div></div><div class=\"gameMeta\"><div class=\"playerName gameMetaText\"><p class=\"noWrap\">Locked by " + (jade.escape((jade.interp = card.currentGame.user.nickname) == null ? '' : jade.interp)) + "</p></div><div class=\"gameTime gameMetaText\"><p class=\"noWrap\">" + (jade.escape((jade.interp = card.currentGame.fromNow) == null ? '' : jade.interp)) + "</p></div></div></div><div class=\"gameLocks\">");
+buf.push("<div" + (jade.cls(['gameZone','cardZone','' + (card.viewConfig.gameView) + ' ' + (card.viewConfig.playersView) + ''], [null,null,true])) + "><div class=\"gameHeader\"><div class=\"gameCreator\"><div" + (jade.attr("style", 'background-image:url("' + (card.currentGame.user.profilePic.path) + '")', true, false)) + (jade.attr("mediaId", '' + (card.currentGame.user.profilePic.id) + '', true, false)) + " class=\"face\"></div></div><div class=\"gameMeta\"><div class=\"playerName gameMetaText\"><p class=\"noWrap\">Locked by " + (jade.escape((jade.interp = card.currentGame.user.nickname) == null ? '' : jade.interp)) + "</p></div><div class=\"gameTime gameMetaText\"><p class=\"noWrap\">" + (jade.escape((jade.interp = card.currentGame.fromNow) == null ? '' : jade.interp)) + "</p></div></div></div><div class=\"gameLocks\">");
 // iterate card.currentGame.locks
 ;(function(){
   var $$obj = card.currentGame.locks;
@@ -46,7 +46,7 @@ buf.push("</div></div>");
 }
 if ( card.viewConfig.gameView == 'unlocked')
 {
-buf.push("<div" + (jade.cls(['cardZone','attemptZone','' + (card.viewConfig.gameView) + ' ' + (card.viewConfig.playersView) + ''], [null,null,true])) + "><div class=\"gameHeader\"><div class=\"gameCreator\"><div" + (jade.attr("style", 'background-image:url("' + (card.currentGame.latestAttempt.user.profilePic) + '")', true, false)) + " class=\"face\"></div></div><div class=\"gameMeta\"><div class=\"playerName gameMetaText\"><p class=\"noWrap\">Unlocked by " + (jade.escape((jade.interp = card.currentGame.latestAttempt.user.nickname) == null ? '' : jade.interp)) + "</p></div><div class=\"gameTime gameMetaText\"><p class=\"noWrap\">" + (jade.escape((jade.interp = card.currentGame.latestAttempt.fromNow) == null ? '' : jade.interp)) + "</p></div></div></div><div class=\"gameLocks\">");
+buf.push("<div" + (jade.cls(['cardZone','attemptZone','' + (card.viewConfig.gameView) + ' ' + (card.viewConfig.playersView) + ''], [null,null,true])) + "><div class=\"gameHeader\"><div class=\"gameCreator\"><div" + (jade.attr("style", 'background-image:url("' + (card.currentGame.latestAttempt.user.profilePic.path) + '")', true, false)) + (jade.attr("mediaId", '' + (card.currentGame.latestAttempt.user.profilePic.id) + '', true, false)) + " class=\"face\"></div></div><div class=\"gameMeta\"><div class=\"playerName gameMetaText\"><p class=\"noWrap\">Unlocked by " + (jade.escape((jade.interp = card.currentGame.latestAttempt.user.nickname) == null ? '' : jade.interp)) + "</p></div><div class=\"gameTime gameMetaText\"><p class=\"noWrap\">" + (jade.escape((jade.interp = card.currentGame.latestAttempt.fromNow) == null ? '' : jade.interp)) + "</p></div></div></div><div class=\"gameLocks\">");
 // iterate card.currentGame.latestAttempt.items
 ;(function(){
   var $$obj = card.currentGame.latestAttempt.items;
@@ -87,7 +87,7 @@ if ( player._id != card.user._id && i < 4)
 {
 i ++
 {
-buf.push("<div" + (jade.attr("style", 'background-image:url("' + (player.profilePic) + '")', true, false)) + " class=\"face\"></div>");
+buf.push("<div" + (jade.attr("style", 'background-image:url("' + (player.profilePic.path) + '")', true, false)) + (jade.attr("mediaId", '' + (player.profilePic.id) + '', true, false)) + " class=\"face\"></div>");
 }
 }
     }
@@ -101,7 +101,7 @@ if ( player._id != card.user._id && i < 4)
 {
 i ++
 {
-buf.push("<div" + (jade.attr("style", 'background-image:url("' + (player.profilePic) + '")', true, false)) + " class=\"face\"></div>");
+buf.push("<div" + (jade.attr("style", 'background-image:url("' + (player.profilePic.path) + '")', true, false)) + (jade.attr("mediaId", '' + (player.profilePic.id) + '', true, false)) + " class=\"face\"></div>");
 }
 }
     }

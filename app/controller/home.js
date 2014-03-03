@@ -70,7 +70,10 @@ define([
 							
 							var face = {
 								id:playerId,
-								profilePic: mp.getMediaPath(state.base.contacts[playerId].profilePic) || '../images/user/anonymous.jpg'
+								profilePic: {
+									path: mp.getMediaPath(state.base.contacts[playerId].profilePic) || '../images/user/anonymous.jpg',
+									id: state.base.contacts[playerId].profilePic
+								}
 							}
 							roomData.players.faces.push(face);				
 						}
