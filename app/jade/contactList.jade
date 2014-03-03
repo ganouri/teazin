@@ -1,10 +1,8 @@
-each contact in state.base.contacts
+each contact in contacts
   .clearfix.contact-card(data-id="#{contact._id}")
     .contact-image
-      if contact.profilePic
-        .face.face60px(style='background-image:url("#{contact.profilePic}")')
-      else
-        .face.face60px(style='background-image:url("images/user/anonymous.jpg")')
+      .loadingFace.face60px
+        .face(style='background-image:url("#{contact.profilePic.path}")', mediaId='contact.profilePic.id')
     .contact-info
       p.contact-nick #{contact.nickname}
       p.contact-email(style="font-color:red;") #{contact.email}

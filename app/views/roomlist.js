@@ -24,7 +24,7 @@ var i = 0
 i ++
 if ( i <= room.viewConfig.facesDisplayed)
 {
-buf.push("<div class=\"loadingFace\"><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + (jade.cls(['face','' + (room.viewConfig.facesView) + ''], [null,true])) + "></div></div>");
+buf.push("<div" + (jade.cls(['loadingFace','' + (room.viewConfig.facesView) + ''], [null,true])) + "><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + " class=\"face\"></div></div>");
 }
     }
 
@@ -36,7 +36,7 @@ buf.push("<div class=\"loadingFace\"><div" + (jade.attr("style", 'background-ima
 i ++
 if ( i <= room.viewConfig.facesDisplayed)
 {
-buf.push("<div class=\"loadingFace\"><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + (jade.cls(['face','' + (room.viewConfig.facesView) + ''], [null,true])) + "></div></div>");
+buf.push("<div" + (jade.cls(['loadingFace','' + (room.viewConfig.facesView) + ''], [null,true])) + "><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + " class=\"face\"></div></div>");
 }
     }
 
@@ -82,7 +82,7 @@ var i = 0
 i ++
 if ( i <= room.viewConfig.facesDisplayed)
 {
-buf.push("<div class=\"loadingFace\"><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + (jade.cls(['face','' + (room.viewConfig.facesView) + ''], [null,true])) + "></div></div>");
+buf.push("<div" + (jade.cls(['loadingFace','' + (room.viewConfig.facesView) + ''], [null,true])) + "><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + " class=\"face\"></div></div>");
 }
     }
 
@@ -94,7 +94,7 @@ buf.push("<div class=\"loadingFace\"><div" + (jade.attr("style", 'background-ima
 i ++
 if ( i <= room.viewConfig.facesDisplayed)
 {
-buf.push("<div class=\"loadingFace\"><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + (jade.cls(['face','' + (room.viewConfig.facesView) + ''], [null,true])) + "></div></div>");
+buf.push("<div" + (jade.cls(['loadingFace','' + (room.viewConfig.facesView) + ''], [null,true])) + "><div" + (jade.attr("style", 'background-image:url("' + (face.profilePic.path) + '")', true, false)) + (jade.attr("faceId", '' + (face.id) + '', true, false)) + (jade.attr("mediaId", '' + (face.profilePic.id) + '', true, false)) + " class=\"face\"></div></div>");
 }
     }
 

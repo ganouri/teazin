@@ -1,7 +1,12 @@
 /*globals define */
 'use strict';
 
-define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/state','service/api', 'views/contact', 'model/contact','views/contactList'],function($, _, ko, hammer, ev, frag, state, api, contactView, ContactModel, contactListFrag){
+define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/state','service/api',
+        'service/mediaprovider',
+        'views/contact',
+        'model/contact',
+        'views/contactList'
+    ],function($, _, ko, hammer, ev, frag, state, api, mp, contactView, ContactModel, contactListFrag){
     return function(config) {
 
         var _this = this;
@@ -55,7 +60,21 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
         };
 
         this.renderContactList = function(){
-            var frag = contactListFrag({state:state});
+
+            var contacts = [];
+            _.each(state.base.contacts, function(contact){
+                contacts.push({
+                    _id: contact._id,
+                    nickname: contact.nickname,
+                    email: contact.email,
+                    profilePic: {
+                        path: mp.getMediaPath(contact.profilePic),
+                        id: contact.profilePic
+                    }
+                })
+            });
+
+            var frag = contactListFrag({contacts:contacts});
             $el.find('.contactListFrag').html('').html(frag);
             $el.find('.contact-card').each(function(index,item){
                 var $item = $(item);
@@ -122,6 +141,8 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
             $el = $(sel);
             var html = contactView({state:_this.state});
             $el.html(html);
+
+            mp.updateMediaPaths();
 
             ko.applyBindings(model,$el[0]);
 

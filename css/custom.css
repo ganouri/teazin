@@ -287,17 +287,17 @@ body{
   color: #ffffff;
 }
 
-.face.face60px{
+.loadingFace.face60px, .loadingFace.face60px .face{
   height: 60px;
   width: 60px;
 }
 
-.face.face2x2{
+.loadingFace.face2x2, .loadingFace.face2x2 .face{
   height: 108px;
   width: 108px;
 }
 
-.facesView .face.face1x2{
+.loadingFace.face1x2, .loadingFace.face1x2 .face{
   height: 108px;
   width: 54px;
 }

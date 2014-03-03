@@ -22,12 +22,14 @@ define(['jquery', 'underscore', 'ev',
 
         this.getMediaPath =  function(_id) {
             var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id;
+
+            console.log(_this.loadList);
             if (_.contains(_this.localMedias,_id)) {
                 return localPath;
             } else {
                 _this.loadList.push(_id);
                 return '';
-            } 
+            }
         }
 
         this.getProfilePicPath =  function(_id) {
@@ -43,6 +45,7 @@ define(['jquery', 'underscore', 'ev',
         this.updateMediaPaths = function (order) { // asynchronous
 
             var idList = order || _this.loadList;
+            console.log('updateMediaPaths')
 
             _.each(idList, function(_id){
 
