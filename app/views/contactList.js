@@ -20,7 +20,7 @@ else
 {
 buf.push("<div style=\"background-image:url(&quot;images/user/anonymous.jpg&quot;)\" class=\"face face60px\"></div>");
 }
-buf.push("</div><div class=\"contact-info\"><p class=\"contact-nick\">" + (jade.escape((jade.interp = contact.nickname) == null ? '' : jade.interp)) + "</p><p style=\"font-color:red;\" class=\"contact-email\">" + (jade.escape((jade.interp = contact.email) == null ? '' : jade.interp)) + "</p></div><div class=\"contact-actions\"><div class=\"checker-container\"><a class=\"checker checkbox-v4 fadeVisible fadeHidden\">x</a></div><div class=\"block-container\"><a class=\"no-bottom button red fadeHidden\">Block</a></div></div><br style=\"clear:both\"/></div>");
+buf.push("</div><div class=\"contact-info\"><p class=\"contact-nick\">" + (jade.escape((jade.interp = contact.nickname) == null ? '' : jade.interp)) + "</p><p style=\"font-color:red;\" class=\"contact-email\">" + (jade.escape((jade.interp = contact.email) == null ? '' : jade.interp)) + "</p></div><div class=\"contact-actions\"><div class=\"checker-container\"><a class=\"checker contactSelectBox\">x</a></div></div><br style=\"clear:both\"/></div>");
     }
 
   } else {
@@ -37,7 +37,7 @@ else
 {
 buf.push("<div style=\"background-image:url(&quot;images/user/anonymous.jpg&quot;)\" class=\"face face60px\"></div>");
 }
-buf.push("</div><div class=\"contact-info\"><p class=\"contact-nick\">" + (jade.escape((jade.interp = contact.nickname) == null ? '' : jade.interp)) + "</p><p style=\"font-color:red;\" class=\"contact-email\">" + (jade.escape((jade.interp = contact.email) == null ? '' : jade.interp)) + "</p></div><div class=\"contact-actions\"><div class=\"checker-container\"><a class=\"checker checkbox-v4 fadeVisible fadeHidden\">x</a></div><div class=\"block-container\"><a class=\"no-bottom button red fadeHidden\">Block</a></div></div><br style=\"clear:both\"/></div>");
+buf.push("</div><div class=\"contact-info\"><p class=\"contact-nick\">" + (jade.escape((jade.interp = contact.nickname) == null ? '' : jade.interp)) + "</p><p style=\"font-color:red;\" class=\"contact-email\">" + (jade.escape((jade.interp = contact.email) == null ? '' : jade.interp)) + "</p></div><div class=\"contact-actions\"><div class=\"checker-container\"><a class=\"checker contactSelectBox\">x</a></div></div><br style=\"clear:both\"/></div>");
     }
 
   }

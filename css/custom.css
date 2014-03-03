@@ -260,7 +260,6 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(52,49,73,1);
   height: 54px;
   width: 54px;
   text-align: center;
@@ -271,10 +270,10 @@ body{
 .face{
   position: relative;
   float: left;
+  background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(52,49,73,1);
   height: 54px;
   width: 54px;
   text-align: center;

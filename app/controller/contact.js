@@ -74,7 +74,7 @@ define(['jquery', 'underscore', 'knockout', 'hammer', 'ev', 'frag', 'service/sta
                 if(_this.state.selectable){
                     hammer(item).on('tap',function(event){
                         event.preventDefault();
-                        $item.find('.contact-actions .checker').toggleClass('checked-v4');
+                        $item.find('.contact-actions .checker').toggleClass('contactSelected');
                         _this.updateConfig();
                     });
                 }
