@@ -62,7 +62,7 @@ define(['jquery', 'underscore', 'ev',
                                     distantPath,
                                     localPath,
                                     function(entry) {
-                                        onsole.log('download ok')
+                                        console.log('download ok')
                                         console.log($("[mediaId='"+_id+"']").length)
                                         $(".rewardImg[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                                         _this.localMedias.push(_id);
