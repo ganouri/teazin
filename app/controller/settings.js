@@ -50,10 +50,10 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
                     console.log(fileName)
                 	api.updateUser({profilePic:fileName},function(err,payload){
 	                	ev.fire('openSettings', {
-                            profilePic: {
+                            /*profilePic: {
                                 path: filePath,
                                 id: fileName
-                            }
+                            }*/
                         });
                 	});
                 });
