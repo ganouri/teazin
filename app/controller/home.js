@@ -91,6 +91,8 @@ define([
 
 			$el.find('#roomList').html(frag);
 
+			mp.updateMediaPaths();
+
 			$el.find('.roomCard').each(function(index,item){
 
 				var $item = $(item);
@@ -109,7 +111,6 @@ define([
 			$el.html(html);
             
             _this.renderRoomList();
-			mp.updateMediaPaths();
 
 		    ev.on('updateRoomList','RoomCtrl',function(){
 				api.update(function(){});
