@@ -23,7 +23,6 @@ define(['jquery', 'underscore', 'ev',
         this.getMediaPath =  function(_id) {
             var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id;
 
-            console.log(_this.loadList);
             if (_.contains(_this.localMedias,_id)) {
                 return localPath;
             } else {
@@ -35,20 +34,14 @@ define(['jquery', 'underscore', 'ev',
         this.updateMediaPaths = function (order) { // asynchronous
 
             var idList = order || _this.loadList;
-            console.log('updateMediaPaths')
 
             _.each(idList, function(_id){
-
-                console.log('update')
-                console.log(_id)
 
                 var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
                     distantPath = 'https://teazinmedias.s3.amazonaws.com/'+_id;
 
                 IsValidImageUrl(localPath, function(url, localTest) {
                     if (localTest) {
-                        console.log('localtest ok')
-                        console.log($("[mediaId='"+_id+"']").length)
                         $("[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                         _this.localMedias.push(_id);
                         _this.loadList = _.without(_this.loadList,_id);
@@ -62,9 +55,7 @@ define(['jquery', 'underscore', 'ev',
                                     distantPath,
                                     localPath,
                                     function(entry) {
-                                        console.log('download ok')
-                                        console.log($("[mediaId='"+_id+"']").length)
-                                        $(".rewardImg[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
+                                        $("[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                                         _this.localMedias.push(_id);
                                         _this.loadList = _.without(_this.loadList,_id);
                                     },

@@ -11,6 +11,11 @@ define(['underscore','ev','service/api'],function(_, ev,api){
 			this.rooms = {};
 			this.media = {};
 			var steps;
+			var completeUpdate = {
+				updateContacts: false,
+				updateRooms: false,
+				updateResources: false
+			};
 
 
 			this.updateContacts = function(){
@@ -99,6 +104,16 @@ define(['underscore','ev','service/api'],function(_, ev,api){
 
 			this.done = function(what){
 				console.log('state: done with '+what);
+				completeUpdate[what] = true;
+				if (completeUpdate.updateResources && completeUpdate.updateRooms && completeUpdate.updateContacts) {
+					console.log('service/state: done. fire completeBaseUpdated');
+					ev.fire('completeBaseUpdated');
+					completeUpdate = {
+						updateContacts: false,
+						updateRooms: false,
+						updateResources: false
+					};
+				}
 				if(steps){
 					steps--;
 				} else {

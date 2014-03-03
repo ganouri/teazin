@@ -127,7 +127,7 @@ define([
 
 			var scrollInPlace = false;
 
-			ev.on('baseUpdated','contactCtrl',function(){
+			ev.on('completeBaseUpdated','contactCtrl',function(){
             	_this.renderRoomList();
             	if (!scrollInPlace) {
 					scrollRefresh('roomlistWrapper','updateRoomList');
