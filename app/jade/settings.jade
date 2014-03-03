@@ -6,7 +6,7 @@
 .profile-settings
 	.profile-picture
 		.loadingProfilePic
-			.profile-image(style='background-image:url("#{data.profilePic}")')
+			.profile-image(style='background-image:url("#{data.profilePic.path}")', mediaId='data.profilePic.id')
 	.profile-info
 		p.profile-nickname #{data.nickname}
 		p.profile-email #{data.email}
