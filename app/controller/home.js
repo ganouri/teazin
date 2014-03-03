@@ -129,7 +129,6 @@ define([
 
 			ev.on('baseUpdated','contactCtrl',function(){
             	_this.renderRoomList();
-				mp.updateMediaPaths();
             	if (!scrollInPlace) {
 					scrollRefresh('roomlistWrapper','updateRoomList');
 					document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);

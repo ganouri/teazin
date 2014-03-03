@@ -32,16 +32,6 @@ define(['jquery', 'underscore', 'ev',
             }
         }
 
-        this.getProfilePicPath =  function(_id) {
-            if (_id == state.base._id) {
-                return state.base.profilePic || 'images/user/anonymous.jpg'
-            } else {
-                return state.contacts[_id].profilePic || 'images/user/anonymous.jpg'
-            }
-            var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id;
-            return _.contains(_this.localMedias,_id) ? localPath : ''
-        }
-
         this.updateMediaPaths = function (order) { // asynchronous
 
             var idList = order || _this.loadList;
