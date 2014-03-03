@@ -39,23 +39,31 @@ define(['jquery', 'underscore', 'ev',
 
             _.each(idList, function(_id){
 
+                console.log('update')
+                console.log(_id)
+
                 var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
                     distantPath = 'https://teazinmedias.s3.amazonaws.com/'+_id;
 
                 IsValidImageUrl(localPath, function(url, localTest) {
                     if (localTest) {
+                        console.log('localtest ok')
+                        console.log($("[mediaId='"+_id+"']").length)
                         $("[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                         _this.localMedias.push(_id);
                         _this.loadList = _.without(_this.loadList,_id);
+
                     } else {
-                        IsValidImageUrl(distantPath, function(url, distantTest) {
-                            if (distantTest) {
+                        //IsValidImageUrl(distantPath, function(url, distantTest) {
+                            //if (distantTest) {
                                 var fileTransfer = new FileTransfer();
 
                                 fileTransfer.download(
                                     distantPath,
                                     localPath,
                                     function(entry) {
+                                        onsole.log('download ok')
+                                        console.log($("[mediaId='"+_id+"']").length)
                                         $(".rewardImg[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
                                         _this.localMedias.push(_id);
                                         _this.loadList = _.without(_this.loadList,_id);
@@ -66,10 +74,10 @@ define(['jquery', 'underscore', 'ev',
                                         console.log("upload error code" + error.code);
                                     }
                                 );
-                            } else {
+                            //} else {
                                 //console.log('image not found on s3'); // GUIGUI to be cleared
-                            }
-                        });
+                            //}
+                        //});
                     }
                 });
                 
