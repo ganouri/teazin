@@ -107,7 +107,7 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
             mp.updateMediaPaths();
 
             if (config.cardOptions.clickable) {
-                $(elem).on('click',function(){
+                hammer(elem).on('hold',function(){
                     var boardConfig = {
                         boardData: config.cardData,
                         boardOptions: {

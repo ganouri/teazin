@@ -30,13 +30,15 @@ define(['jquery', 'service/phonegap', 'service/mockup'], function ($, pg, mockup
                     //upload picture using api : Linux x86_64 // Linux armv7l
                     results[key] = _.extend(data, {order: order});
                     if(data.payload.path){
+                        temporaryCB(); // to display next screen sooner
                         _this.uploadFile(results[key], function(data){
                             results[key] = data;
-                            temporaryCB();
+                            //temporaryCB(); GUIGUI took too long to load the next screen
+                            // GUIGUI what happens if it fails?
                         });
                         // [{"payload":{"type":"Picture","path":"file:///storage/emulated/0/Android/data/com.phonegap.hello_world/cache/1381579613631.jpg"},"order":{"type":"Picture","quantity":1},"upload":{"payload":"cc1e1160-3336-11e3-9fd9-750159600002"}}]
                     }else{
-                        temporaryCB();
+                        temporaryCB(); // should not happen
                     }
 
                 });

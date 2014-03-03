@@ -7,7 +7,10 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
 		var _this = this;
 
 		_this.settingsData = _.extend({
-			profilePic : mp.getMediaPath(state.base.profilePic) || '../images/user/anonymous.jpg',
+			profilePic : {
+                path: mp.getMediaPath(state.base.profilePic),
+                id: state.base.profilePic
+            },
 			nickname : state.base.nickname,
 			email : state.base.email
 		},config);
@@ -46,7 +49,12 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
                     var fileName = filePath.substr(filePath.lastIndexOf('/')+1);
                     console.log(fileName)
                 	api.updateUser({profilePic:fileName},function(err,payload){
-	                	ev.fire('openSettings', {profilePic: fileName});
+	                	ev.fire('openSettings', {
+                            profilePic: {
+                                path: filePath,
+                                id: fileName
+                            }
+                        });
                 	});
                 });
 			});
