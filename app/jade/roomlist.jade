@@ -5,7 +5,8 @@ each room in roomList
             each face in room.players.faces
                 - i ++
                 if i <= room.viewConfig.facesDisplayed
-                    .face(class='#{room.viewConfig.facesView}', style='background-image:url("#{face.profilePic.path}")', faceId='#{face.id}', mediaId='#{face.profilePic.id}')
+                    .loadingFace
+                        .face(class='#{room.viewConfig.facesView}', style='background-image:url("#{face.profilePic.path}")', faceId='#{face.id}', mediaId='#{face.profilePic.id}')
             if room.players.leftover > 0
                 .face(class='#{room.viewConfig.facesView}')
                     p #{room.players.leftover}

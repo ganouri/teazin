@@ -20,12 +20,12 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
         this.getProfilePic = function(_id){
             if (_id == state.base._id) {
                 return {
-                    path: mp.getMediaPath(state.base.profilePic) || '../images/user/anonymous.jpg',
+                    path: mp.getMediaPath(state.base.profilePic),
                     id: state.base.profilePic
                 };
             } else {
                 return {
-                    path: mp.getMediaPath(state.contacts[_id].profilePic) || '../images/user/anonymous.jpg',
+                    path: mp.getMediaPath(state.contacts[_id].profilePic),
                     id: state.contacts[_id].profilePic
                 };
             }
@@ -107,7 +107,7 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans',
             mp.updateMediaPaths();
 
             if (config.cardOptions.clickable) {
-                hammer(elem).on('hold',function(){
+                hammer(elem[0]).on('hold',function(){
                     var boardConfig = {
                         boardData: config.cardData,
                         boardOptions: {

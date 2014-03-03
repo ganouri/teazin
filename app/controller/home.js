@@ -71,7 +71,7 @@ define([
 							var face = {
 								id:playerId,
 								profilePic: {
-									path: mp.getMediaPath(state.base.contacts[playerId].profilePic) || '../images/user/anonymous.jpg',
+									path: mp.getMediaPath(state.base.contacts[playerId].profilePic),
 									id: state.base.contacts[playerId].profilePic
 								}
 							}
