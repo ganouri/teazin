@@ -74,7 +74,7 @@ define(['jquery', 'underscore', 'ev',
                                     }
                                 );
                             } else {
-                                console.log('image not found on s3'); // GUIGUI to be cleared
+                                //console.log('image not found on s3'); // GUIGUI to be cleared
                             }
                         });
                     }

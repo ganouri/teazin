@@ -42,7 +42,7 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
                     quality: 25}
                 }];
                 ev.fire('captureMedia', orders, function(medias){
-                    var filePath = config.medias[0].payload.path;
+                    var filePath = medias[0].payload.path;
                     var fileName = filePath.substr(filePath.lastIndexOf('/')+1);
                     console.log(fileName)
                 	api.updateUser({profilePic:fileName},function(err,payload){
