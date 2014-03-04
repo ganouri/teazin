@@ -28,7 +28,7 @@ define(['jquery', 'underscore', 'ev',
                 if(_id) _this.loadList.push(_id)
                 return '';
             }*/
-            if (typeof _this.mediaList[_id] != 'undefined' && _this.mediaList[_id] = 'localMedia') {
+            if (typeof _this.mediaList[_id] != 'undefined' && _this.mediaList[_id] == 'localMedia') {
                 return localPath;
             } else if (_id) {
                 _this.mediaList[_id] = 'missingMedia';
