@@ -2,9 +2,10 @@
 'use strict';
 
 define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','iscroll5','frag', 'service/api', 'service/state',
+    'service/mediaprovider',
     'service/control',
     'views/board'
-],function($, _, hammer, moment, vague, ev, trans ,iscroll ,frag, api, state, controls, boardView){
+],function($, _, hammer, moment, vague, ev, trans ,iscroll ,frag, api, state, mp, controls, boardView){
     return function(config) {
         var _this = this;
         var $el;
@@ -15,16 +16,26 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','iscrol
 
         this.getProfilePic = function(_id){
             if (_id == state.base._id) {
-                return state.base.profilePic || 'images/user/anonymous.jpg'
+                return {
+                    path: mp.getMediaPath(state.base.profilePic),
+                    id: state.base.profilePic
+                };
             } else {
-                return state.contacts[_id].profilePic || 'images/user/anonymous.jpg'
+                return {
+                    path: mp.getMediaPath(state.contacts[_id].profilePic),
+                    id: state.contacts[_id].profilePic
+                };
             }
         }
 
         _this.boardDataSet = {
             players: config.boardOptions.players || [],
             namesList:'',
-            primaryMedia: config.boardData.primaryMedia || {type: '', content: ''},
+            primaryMedia: {
+                type: config.boardData.primaryMedia.type || '',
+                content: config.boardData.primaryMedia.content || '',
+                id: config.boardData.primaryMedia.id || ''
+            },
             user: {
                 _id: config.boardData.user || '',
                 nickname: _this.getNickname(config.boardData.user),
@@ -36,6 +47,8 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','iscrol
                 gameView: 'nolock' // GUIGUI later adjust that as a mechanism
             }
         };
+
+        _this.boardDataSet.primaryMedia.path = mp.getMediaPath(_this.boardDataSet.primaryMedia.id);
 
         // extend players
         _this.boardDataSet.players = _.map(config.boardOptions.players,function(playerId){return {
@@ -214,6 +227,8 @@ define(['jquery','underscore', 'hammer', 'moment', 'vague', 'ev','trans','iscrol
             _this.regDeleteBoard();
 
             _this.renderUnlockCurrent();
+
+            mp.updateMediaPaths();
 
             setTimeout(function(){
                 var boardScroll = new IScroll('#boardWrapper', {click: true, scrollbars: true});

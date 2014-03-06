@@ -10,11 +10,13 @@
             //- if you click on this number column enlarge
             for player in board.players
                 if player._id != board.user._id
-                    .face(style='background-image:url("#{player.profilePic}")')
+                    .loadingFace
+                        .face(style='background-image:url("#{player.profilePic.path}")', mediaId='#{player.profilePic.id}')
         .rewardZone.boardZone.row
             .rewardContainer
                 if board.primaryMedia.type === 'Picture'
-                    .rewardImg(style='background-image:url("#{board.primaryMedia.content}")')
+                    .loadingImg
+                        .rewardImg(style='background-image:url("#{board.primaryMedia.path}")', mediaId='#{board.primaryMedia.id}')
                 else if board.primaryMedia.type === 'Text'
                     .rewardText
                         p #{board.primaryMedia.content}
@@ -25,7 +27,8 @@
             .gameZone.boardZone
                 .gameHeader
                     .gameCreator
-                        .face(style='background-image:url("#{board.currentGame.user.profilePic}")')
+                        .loadingFace
+                            .face(style='background-image:url("#{board.currentGame.user.profilePic.path}")', mediaId='#{board.currentGame.user.profilePic.id}')
                     .gameMeta
                         .playerName.gameMetaText
                             p.noWrap Locked by #{board.currentGame.user.nickname}
@@ -44,7 +47,8 @@
             .boardZone.attemptZone(class= '#{attempt.state}')
                 .gameHeader
                     .gameCreator
-                        .face(style='background-image:url("#{attempt.user.profilePic}")')
+                        .loadingFace
+                            .face(style='background-image:url("#{attempt.user.profilePic.path}")', mediaId='#{attempt.user.profilePic.id}')
                     .gameMeta
                         .playerName.gameMetaText
                             if attempt.state == 'success'

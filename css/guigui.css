@@ -387,6 +387,7 @@
 
 .rewardZone .loadingImg{
     background-image:url("../images/loaders/missingMedia.gif");
+    background-color : rgb(20, 19, 30);
     background-size: 66px 66px;
     background-position: center;
     background-repeat: no-repeat;

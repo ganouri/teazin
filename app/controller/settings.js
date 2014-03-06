@@ -20,6 +20,8 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
 			var html = settingsView({data:_this.settingsData});
 			var $el = $(sel).html(html);
 
+            mp.updateMediaPaths();
+
 			$el.find('.setting-header').each(function(index,item){
 				var $item = $(item);
 				hammer(item).on('tap',function(event){
@@ -58,8 +60,6 @@ define(['jquery','underscore', 'hammer', 'ev', 'iscroll5','trans','frag', 'servi
 			});
 
 			ev.fire('clearFullStack');
-
-            mp.updateMediaPaths();
 
 			setTimeout(function(){
                 var settingsScroll = new IScroll('#settingsWrapper', {click: true, scrollbars: true});
