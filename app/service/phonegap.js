@@ -31,6 +31,9 @@ define(['service/api'], function(api){
             var fileURI = data.payload.path,
                 fileName = fileURI.substr(fileURI.lastIndexOf('/')+1);
 
+            console.log('local url');
+            console.log(fileURI);
+
             var options = new FileUploadOptions();
 
             options.fileKey = "file";
