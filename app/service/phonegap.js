@@ -33,6 +33,7 @@ define(['service/api'], function(api){
 
             console.log('local url');
             console.log(fileURI);
+            alert(fileURI);
 
             var options = new FileUploadOptions();
 
