@@ -12,6 +12,27 @@ define(['jquery', 'underscore', 'ev',
 
         _this.mediaList = {};
 
+        function fail(evt) {
+            console.log(evt.target.error.code);
+        }
+
+        if(typeof _this.localPath === 'undefined') {
+            window.requestFileSystem(
+                LocalFileSystem.PERSISTENT, 0, 
+                function onFileSystemSuccess(fileSystem) {
+                    fileSystem.root.getFile(
+                        "dummy.html",
+                        {create: true, exclusive: false}, 
+                        function(fileEntry) {
+                            _this.localPath = fileEntry.fullPath.replace("dummy.html","");
+                        },
+                        fail
+                    );
+                },
+                fail  
+            );
+        }
+
         function IsValidImageUrl(url,callback) {
             var img = new Image();
             img.onerror = function() { callback(url, false); }
@@ -19,17 +40,15 @@ define(['jquery', 'underscore', 'ev',
             img.src = url;
         }
 
-        this.getMediaPath =  function(_id) {
-            var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id;
+        function displayMedia(_id,url) {
+            $("[mediaId='"+_id+"']").css("background-image", 'url("'+url+'")');
+            _this.mediaList[_id] = 'localMedia';
+        }
 
-            /*if (_.contains(_this.localMedias,_id)) {
-                return localPath;
-            } else {
-                if(_id) _this.loadList.push(_id)
-                return '';
-            }*/
+        this.getMediaPath =  function(_id) {
+            var localMediaPath = _this.localPath+_id;
             if (typeof _this.mediaList[_id] != 'undefined' && _this.mediaList[_id] == 'localMedia') {
-                return localPath;
+                return localMediaPath;
             } else if (_id) {
                 _this.mediaList[_id] = 'missingMedia';
                 return '';
@@ -42,21 +61,20 @@ define(['jquery', 'underscore', 'ev',
 
             _.each(idList, function(type,_id){
                 if (type == 'missingMedia') {
-                    var localPath = 'file:///storage/emulated/0/Android/data/in.teaz.beta/cache/'+_id, // ONLY FOR ANDROID
-                    distantPath = 'https://teazinmedias.s3.amazonaws.com/'+_id;
+                    var distantMediaPath = 'https://teazinmedias.s3.amazonaws.com/'+_id,
+                        localMediaPath = _this.localPath+_id;
 
-                    IsValidImageUrl(localPath, function(url, localTest) {
+                    IsValidImageUrl(localMediaPath, function(url, localTest) {
+                    //checkIfFileExists(_id, function(localTest, url) {
                         if (localTest) {
-                            $("[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
-                            _this.mediaList[_id] = 'localMedia';
+                            displayMedia(_id,url);
                         } else {
                             var fileTransfer = new FileTransfer();
                             fileTransfer.download(
-                                distantPath,
-                                localPath,
+                                distantMediaPath,
+                                localMediaPath,
                                 function(entry) {
-                                    $("[mediaId='"+_id+"']").css("background-image", 'url("'+localPath+'")');
-                                    _this.mediaList[_id] = 'localMedia';
+                                    displayMedia(_id,url);
                                 },
                                 function(error) {
                                     console.log("download error source " + error.source);
