@@ -19,12 +19,13 @@ define(['jquery', 'underscore', 'ev',
         if(typeof _this.localPath === 'undefined') {
             window.requestFileSystem(
                 LocalFileSystem.PERSISTENT, 0, 
-                function onFileSystemSuccess(fileSystem) {
+                function(fileSystem) {
                     fileSystem.root.getFile(
                         "dummy.html",
                         {create: true, exclusive: false}, 
                         function(fileEntry) {
-                            _this.localPath = fileEntry.fullPath.replace("dummy.html","");
+                            alert(fileEntry.toURL());
+                            _this.localPath = fileEntry.toURL().replace("dummy.html","");
                             alert(_this.localPath);
                         },
                         fail
@@ -65,6 +66,7 @@ define(['jquery', 'underscore', 'ev',
                 if (type == 'missingMedia') {
                     var distantMediaPath = 'https://teazinmedias.s3.amazonaws.com/'+_id,
                         localMediaPath = _this.localPath+_id;
+                    console.log(localMediaPath);
 
                     IsValidImageUrl(localMediaPath, function(url, localTest) {
                         if (localTest) {
