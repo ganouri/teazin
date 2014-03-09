@@ -25,12 +25,14 @@ define(['jquery', 'underscore', 'ev',
                         {create: true, exclusive: false}, 
                         function(fileEntry) {
                             _this.localPath = fileEntry.fullPath.replace("dummy.html","");
+                            alert(_this.localPath);
                         },
                         fail
                     );
                 },
                 fail  
             );
+            //_this.localPath = '/images/downloaded/';
         }
 
         function IsValidImageUrl(url,callback) {
@@ -65,16 +67,15 @@ define(['jquery', 'underscore', 'ev',
                         localMediaPath = _this.localPath+_id;
 
                     IsValidImageUrl(localMediaPath, function(url, localTest) {
-                    //checkIfFileExists(_id, function(localTest, url) {
                         if (localTest) {
-                            displayMedia(_id,url);
+                            displayMedia(_id,localMediaPath);
                         } else {
                             var fileTransfer = new FileTransfer();
                             fileTransfer.download(
                                 distantMediaPath,
                                 localMediaPath,
                                 function(entry) {
-                                    displayMedia(_id,url);
+                                    displayMedia(_id,localMediaPath);
                                 },
                                 function(error) {
                                     console.log("download error source " + error.source);
