@@ -24,9 +24,7 @@ define(['jquery', 'underscore', 'ev',
                         "dummy.html",
                         {create: true, exclusive: false}, 
                         function(fileEntry) {
-                            alert(fileEntry.toURL());
                             _this.localPath = fileEntry.toURL().replace("dummy.html","");
-                            alert(_this.localPath);
                         },
                         fail
                     );
@@ -66,7 +64,6 @@ define(['jquery', 'underscore', 'ev',
                 if (type == 'missingMedia') {
                     var distantMediaPath = 'https://teazinmedias.s3.amazonaws.com/'+_id,
                         localMediaPath = _this.localPath+_id;
-                    console.log(localMediaPath);
 
                     IsValidImageUrl(localMediaPath, function(url, localTest) {
                         if (localTest) {

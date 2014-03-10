@@ -67,16 +67,19 @@ define([
 						if (typeof subs != 'undefined'){
 							// GUIGUI TEMPORARY SOLUTION FOR NAMES
 							roomData.players.emails += subs.charAt(0).toUpperCase()+subs.substring(1,subs.indexOf('@'))+', ';
-							
-							var face = {
-								id:playerId,
-								profilePic: {
-									path: mp.getMediaPath(state.base.contacts[playerId].profilePic),
-									id: state.base.contacts[playerId].profilePic
-								}
-							}
-							roomData.players.faces.push(face);				
+						} else {
+							roomData.players.emails += 'An Onymo';
 						}
+
+						var face = {
+							id:playerId,
+							profilePic: {
+								path: mp.getMediaPath(state.base.contacts[playerId].profilePic),
+								id: state.base.contacts[playerId].profilePic
+							}
+						}
+						roomData.players.faces.push(face);
+
 					} else if (playerId != state.base._id) {
 						roomData.players.emails += 'Anonymous, ';
 						roomData.players.faces.push('anonymous');
