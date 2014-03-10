@@ -31,7 +31,6 @@ define(['jquery', 'underscore', 'ev',
                 },
                 fail  
             );
-            //_this.localPath = '/images/downloaded/';
         }
 
         function IsValidImageUrl(url,callback) {
